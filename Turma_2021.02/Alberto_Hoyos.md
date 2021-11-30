@@ -75,7 +75,7 @@ As two methods are compared, it is important to set the same limits (upper and l
   
 In general, it is said that the more data is used, the more computing time, the more effort and the more memory is required. So, according to the results provided by this study in order to test high limit values for the hyperparameters, it is required to have high memory capacity on the virtual machine. So, the more proximity to high performances (R^2 > 0.9) for every testing, the less computing time, the less effort and the faster results are achieved. 
   
-## References
+## References:
 1) Tam, A. (2021). A Gentle Introduction to Particle Swarm Optimization. Retrieved 26 November 2021, from https://machinelearningmastery.com/a-gentle-introduction-to-particle-swarm-optimization/
 2) optuna.visualization — Optuna 2.10.0 documentation. (2021). Retrieved 26 November 2021, from https://optuna.readthedocs.io/en/stable/reference/visualization/index.html
 3) Scikit-learn: machine learning in Python — scikit-learn 1.0.1 documentation. (2021). Retrieved 26 November 2021, from https://scikit-learn.org/stable/.
