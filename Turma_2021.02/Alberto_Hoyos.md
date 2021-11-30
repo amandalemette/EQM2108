@@ -52,15 +52,18 @@ Figure No. 5
 The values achieved for these hyperparameters are equal to: 12, 82, 11 and 66 respectively.  
 It is obtained high performances for every section: training (0.9882267866668047), testing (0.9877439463081822) and validation (0.9870512920212109).
 Particle Swarm:
-As the assessment parameter is set as (1-R2val), the PSO found the best solution at (min_samples_leaf = 60, max_samples = 5598, min_samples_split = 60, max_depth = 5598), with R^2 equal to (1 - 0.00796172584949384 = 0.99203827415). This value was achieved as these factors are settled: The minimum limit = 60, (c1, c2 and w) = 100, the number of iterations = 4  and the number of particles = 100.
+As the assessment parameter is set as (1-R2val), the PSO found the best solution at (min_samples_leaf = 2, max_samples = 62, min_samples_split = 2, max_depth = 6), with R^2 equal to (1 - 0.013791030391344328 = 0.9862089696). This value was achieved as these factors are settled: The minimum limit = 2, (c1, c2 and w) = 1, the number of iterations = 4  and the number of particles = 100
 
 ## Discussion:
-Regarding the assessment of the performance for every hyperparameter using Optuna, it is reported that through modifying their upper limits, high/low performances (R^2) are achieved (variations). Basically, these variations are explained by the simple exploration of hyperparameters (an implicit criterion of the meta estimator Random Forest). So, in order to achieve high performances, it is required to understand the effect of every hyperparameter on the model, to check if they can be applied on the required model and just to apply "trial and error" on the objective function.  
+  
+Regarding the assessment of the performance for every hyperparameter using Optuna, it is reported that through modifying their upper limits, high/low performances (R^2) are achieved (variations). Basically, these variations are explained by the simple exploration of hyperparameters (an implicit criterion of the meta estimator Random Forest). So, in order to achieve high performances, it is required to understand the effect of every hyperparameter on the model, to look over if they can be applied on the required model and just to apply "trial and error" on the objective function.  
 
 It is said that the more data is used, the more computing time, the more effort and the more memory is required. So, according to the results provided by this study in order to test high limit values for the hyperparameters, it is required to have high memory capacity on the virtual machine. So, the more proximity to high performances (R^2 > 0.9) for every testing, the less computing time, the less effort and the faster results are achieved. 
 
-Respect the particle swarm model, 
-
+Respect the particle swarm model, it is reported that the iteration and approximation process is in function of the speed (V). In fact, the speed is impacted by the variation on its parameters (as w, c1, c2). If these values are high (100 or more), the iteration process is too fast, so the optimized value (PSO) is found as the limits (upper and lower) are achieved, which it provides an optimal number, but it does not satisfy the needs. Then, PSO optimizes this problem by iteratively trying to improve a candidate solution with regard to a given measure of quality. This iteration process is shown in the figure No. 6 per 1 iteration.
+  
+<center><img src="https://github.com/amandalemette/EQM2108/blob/8570611fc55a21869afcaefb1429e8a2d5af3acc/Turma_2021.02/Imagens/6.png" width=1800 height=450 /><center>  
+  
 ## Conclusion:
 
 ## References
