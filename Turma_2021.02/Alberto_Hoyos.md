@@ -26,31 +26,36 @@ Figure No. 2
 
 As these elements (hyperparameters) are intended to be assessed, it is needed to define the dataset split (including the validation set) previously. The dataset is split into: Training (70%), testing (15%) and validation (15%).
 The fourth step: Select the hyperparameters with the most important impact on the model. These must be applied on the model again, expecting to obtain high performance (R^2 > 0.95) for the three splits (training, testing and validation). 
+  
 The evaluation is divided into 3 steps for Particle Swarm: 
+  
 The first step: Reply the selection dataset (definition of variables and uploading the dataset) from Optuna.
 The second step: Define the dataset split (including the validation set). The dataset is split into: Training (70%), testing (15%) and validation (15%).
-The third step: Select the same optimized hyperparameters from Optuna and apply the optimization model (particle swarm), expecting to obtain high performance (R^2 > 0.95).  It is need to set the value for: hyperparameters of particle swarm (c1,c2 and w), number of particles, then number of iterations and the minimum limit for the hyperparameters. 
+The third step: Select the same optimized hyperparameters from Optuna and apply the optimization model (particle swarm), expecting to obtain high performance (R^2 > 0.95).  It is need to set the value for: hyperparameters of particle swarm (c1,c2 and w), number of particles, then number of iterations and the minimum limit for the hyperparameters. This model is shown in the figure No. 3
+  
+<center><img src="https://github.com/amandalemette/EQM2108/blob/b09d7197dfb8bac806f1645115991ea4ead660a8/Turma_2021.02/Imagens/7.png" width=1800 height=450 /><center>  
 
 ## Results:
 
 Optuna: 
-It is obtained the correlation matrix as it is shown in the figure No. 3. Basically, it indicates that any input variable may be excluded because there is no correlation among them (any value different from 1 in the same row).
+It is obtained the correlation matrix as it is shown in the figure No. 4. Basically, it indicates that any input variable may be excluded because there is no correlation among them (any value different from 1 in the same row).
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/b5dc1007cda97262a63e52a886eb47d4bf45a6d5/Turma_2021.02/Imagens/figure%201.png" width=1800 height=450 /><center>
-Figure No. 3
+Figure No. 4
 
-It is plotted the relation between the number of trials and the objective value. Basically, the result showed in the figure No. 4, indicates that as it was expected, during the training section the performance of the model is not high. However, as the testing section is achieved, the model is able to optimize and to reach the value of the objective function. Subsequently, this performance is confirmed as the validation section is achieved. The final R^2 got by setting the upper limits as 100 for every hyperparameter (excluding n_jobs), is equal to 0.9913787083312774.
+It is plotted the relation between the number of trials and the objective value. Basically, the result showed in the figure No. 5, indicates that as it was expected, during the training section the performance of the model is not high. However, as the testing section is achieved, the model is able to optimize and to reach the value of the objective function. Subsequently, this performance is confirmed as the validation section is achieved. The final R^2 got by setting the upper limits as 100 for every hyperparameter (excluding n_jobs), is equal to 0.9913787083312774.
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/278ac6d7e7f520789287f54781fe4c0315001166/Turma_2021.02/Imagens/figure%202.png" width=1800 height=450 /><center>
-Figure No. 4 
+Figure No. 5 
 
-It is acquired that min_samples_leaf, max_samples, min_samples_split and max_depth represent the most sensitivity on the model. This information is shown in the figure No. 5. 
+It is acquired that min_samples_leaf, max_samples, min_samples_split and max_depth represent the most sensitivity on the model. This information is shown in the figure No. 6. 
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/25de7b31e4e01e7e3b0b943a4881be330e1bace7/Turma_2021.02/Imagens/figure%203.png" width=1800 height=450 /><center>
-Figure No. 5
+Figure No. 6
 
 The values achieved for these hyperparameters are equal to: 12, 82, 11 and 66 respectively.  
 It is obtained high performances for every section: training (0.9882267866668047), testing (0.9877439463081822) and validation (0.9870512920212109).
+
 Particle Swarm:
 As the assessment parameter is set as (1-R2val), the PSO found the best solution at (min_samples_leaf = 2, max_samples = 62, min_samples_split = 2, max_depth = 6), with R^2 equal to (1 - 0.013791030391344328 = 0.9862089696). This value was achieved as these factors are settled: The minimum limit = 2, (c1, c2 and w) = 1, the number of iterations = 4  and the number of particles = 100
 
@@ -58,14 +63,17 @@ As the assessment parameter is set as (1-R2val), the PSO found the best solution
   
 Regarding the assessment of the performance for every hyperparameter using Optuna, it is reported that through modifying their upper limits, high/low performances (R^2) are achieved (variations). Basically, these variations are explained by the simple exploration of hyperparameters (an implicit criterion of the meta estimator Random Forest). So, in order to achieve high performances, it is required to understand the effect of every hyperparameter on the model, to look over if they can be applied on the required model and just to apply "trial and error" on the objective function.  
 
-It is said that the more data is used, the more computing time, the more effort and the more memory is required. So, according to the results provided by this study in order to test high limit values for the hyperparameters, it is required to have high memory capacity on the virtual machine. So, the more proximity to high performances (R^2 > 0.9) for every testing, the less computing time, the less effort and the faster results are achieved. 
-
-Respect the particle swarm model, it is reported that the iteration and approximation process is in function of the speed (V). In fact, the speed is impacted by the variation on its parameters (as w, c1, c2). If these values are high (100 or more), the iteration process is too fast, so the optimized value (PSO) is found as the limits (upper and lower) are achieved, which it provides an optimal number, but it does not satisfy the needs. Then, PSO optimizes this problem by iteratively trying to improve a candidate solution with regard to a given measure of quality. This iteration process is shown in the figure No. 6 per 1 iteration.
+Respect the particle swarm model, it is reported that the iteration and approximation process is in function of the speed (V). In fact, the speed is impacted by the variation on its parameters (as w, c1, c2). If these values are high (100 or more), the iteration process is too fast, so the optimized value (PSO) is found as the limits (upper and lower) are achieved, which it provides an optimal number, but it does not satisfy the needs. Then, PSO optimizes this problem by iteratively trying to improve a candidate solution with regard to a given measure of quality. Basically, this optimization model is affected by the sensitivity of the parameters (exploration and iteration). 
+  
+This iteration process is shown in the figure No. 7 per 1 iteration.
   
 <center><img src="https://github.com/amandalemette/EQM2108/blob/8570611fc55a21869afcaefb1429e8a2d5af3acc/Turma_2021.02/Imagens/6.png" width=1800 height=450 /><center>  
+Figure No. 7
   
-## Conclusion:
-
+As two methods are compared, it is important to set the same limits (upper and lower) for both methods. For Optuna is needed to calibrate the hyperparameters, setting a high value for limits (upper/lower) represents high computational effort. In contrast, this factor (definition of the limits) is not a relevant factor on PSO, as it was shown in the code. This one means that it is possible to explore faster and easier the optimized value for the hyperparameters using PSO, as the key factor is to define the best values for the iteration (searching) parameters (c1,c2 and w).
+  
+In general, it is said that the more data is used, the more computing time, the more effort and the more memory is required. So, according to the results provided by this study in order to test high limit values for the hyperparameters, it is required to have high memory capacity on the virtual machine. So, the more proximity to high performances (R^2 > 0.9) for every testing, the less computing time, the less effort and the faster results are achieved. 
+  
 ## References
 1) Tam, A. (2021). A Gentle Introduction to Particle Swarm Optimization. Retrieved 26 November 2021, from https://machinelearningmastery.com/a-gentle-introduction-to-particle-swarm-optimization/
 2) optuna.visualization — Optuna 2.10.0 documentation. (2021). Retrieved 26 November 2021, from https://optuna.readthedocs.io/en/stable/reference/visualization/index.html
