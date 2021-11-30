@@ -34,7 +34,8 @@ The second step: Define the dataset split (including the validation set). The da
 The third step: Select the same optimized hyperparameters from Optuna and apply the optimization model (particle swarm), expecting to obtain high performance (R^2 > 0.95).  It is need to set the value for: hyperparameters of particle swarm (c1,c2 and w), number of particles, then number of iterations and the minimum limit for the hyperparameters. This model is shown in the figure No. 3
   
 <center><img src="https://github.com/amandalemette/EQM2108/blob/b09d7197dfb8bac806f1645115991ea4ead660a8/Turma_2021.02/Imagens/7.png" width=1800 height=450 /><center>  
-
+Figure No. 3
+  
 ## Results:
 
 Optuna: 
