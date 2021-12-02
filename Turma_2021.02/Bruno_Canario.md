@@ -69,7 +69,9 @@ Figura 2 - True Positive, True Negative, False Positive e False Negative
 
 Dessa forma a accuracy, precision, recall e f1-score são calculados conforme as equações 1 a 4 abaixo:
 
-TABELAAAAAAAAAAAAAAAAAAAAAAA
+![image](https://user-images.githubusercontent.com/95252686/144455882-dc9f28b6-4944-4682-8067-f0e2afe59de9.png)
+	
+<center><img src="https://github.com/amandalemette/EQM2108/blob/d5f3a0aed3d861c48186fceffa33851ba2742a99/Turma_2021.02/Imagens/accuracy_precision_recall_F1-Score.PNG?raw=true"  /><center>
 
 
 Após o cálculo dessas métricas para o treinamento e para o teste, foi produzido matrizes de confusão para o treinamento e teste tanto de forma percentual quanto com a quantidade absoluta de dados. Em seguida, foi produzida curva de aprendizagem, onde é comparada a performance do treinamento com a do teste ao longo de todo o processo de aprendizagem. Por último foi construída a curva ROC e a curva Precision-Recall e o resultado das duas curvas será comparado.
@@ -108,10 +110,23 @@ Figura 6 – Árvore construída
 Agora para avaliar o modelo foi primeiramente calculado a accuracy, precisiom, recall e F1-Score do treinamento e do teste. Para o treinamento, a accuracy foi de 0.8789546 enquanto que para o teste foi de 0.75490196. Já para a precision, recall e F1-Score os resultados estão apresentados nas tabelas 2 e 3 abaixo respectivamente para treinamento e teste.
 
 Tabela 2 - Precision, Recall e F1-Score do treinamento
-TABELAAAAAAAAAAAAAAA
+
+Classes | Precision | Recall | F1-Score
+:---: | :---: | :---: | :---:
+0 | 0,88 | 0,97 | 0,92
+1 | 0,86 | 0,59 | 0,70
+Macro Average | 0,87 | 0,78 | 0,81
+Weighted Average | 0,88 | 0,88 | 0,87
+
 
 Tabela 3 - Precision, Recall e F1-Score do teste
-TABELAAAAAAAAAAAAAAA 
+
+Classes | Precision | Recall | F1-Score
+:---: | :---: | :---: | :---:
+0 | 0,75 | 0,94 | 0,84
+1 | 0,76 | 0,38 | 0,51
+Macro Average | 0,76 | 0,66 | 0,67
+Weighted Average | 0,76 | 0,75 | 0,73
 
 
 Nota-se que os resultados não são excelentes, porém podem ser considerados satisfatórios. Cabe destacar que houve uma diferença significativa entre os recalls das duas classes, o que implica que o número de False Negatives foi bastante discrepante, havendo muito mais para a classe 1 do que para a classe 0. Ou seja, quando era para o modelo classificar como 1 ele classificou como 0 em maior frequência do que o inverso. Além disso, se for considerar a média com pesos para o recall ela foi maior que a média sem pesos. Isso também aconteceu para as médias com peso do F1-Score.
@@ -138,6 +153,7 @@ Figura 10 – Matriz de confusão com valores percentuais do teste
 
 A curva de aprendizagem, representada na Figura 11, apresentou o comportamento esperado, onde o desempenho do treinamento é mais alto no começo da aprendizagem e vai diminuindo com o tempo, e o desempenho do teste começa mais baixo e tende a ir aumentando com o tempo, e assim a as curvas se aproximam.
 
+	
 Figura 11 – Curva de Aprendizagem
 
 
@@ -154,8 +170,7 @@ Figura 13 – Curva Precision-Recall
 
 Ambas as curvas possuem suas particularidades e suas características específicas. A Curva ROC é um gráfico que apresenta no eixo X a taxa de False Positives (equação 5) e no eixo Y a taxa de True Positives (equação 6). O objetivo do mesmo é descobrir a habilidade que o modelo possui de conseguir prever os resultados. Essa habilidade é quantificada através da área abaixo da curva. Um modelo que não possui habilidade alguma e, portanto, que não consegue distinguir entre as classes, possui uma área abaixo da curva de 0,5. Ou seja, é construída uma reta diagonal que vai da extremidade inferior esquerda até a extremidade superior direita. Então, a curva ROC que apresenta uma curvatura acima da diagonal já apresenta certa habilidade.
 
-TABELAAAAAAAAAA
-
+<center><img src="https://github.com/amandalemette/EQM2108/blob/c9c515a4d76ae39384656cd3c1ac7d8112c83ab7/Turma_2021.02/Imagens/TP_Rate_FP_Rate.PNG?raw=true"  /><center>	
 
 Já em relação à curva precision-recall, ela plota o recall no eixo X e a precision no eixo Y. Porém, diferentemente da curva ROC, a curva precision-recall é mais útil para situações onde a classificação binária possui um desbalanceamento na quantidade de dados entre as duas classes. Em especial há muitos exemplos onde o número de dados da classe 0 é muito maior do que na classe 1 e nesse caso interessa-se menos na habilidade do modelo de prever a classe 0 (True Negatives). Isso porque no cálculo de precision e recall não se faz uso de True Negatives, estando apenas interessado na predição correta na classe minoritária (classe 1). Os True Negatives estão presentes na curva ROC dentro da taxa de False Positives, o que é evitado na curva precision-recall e por isso se torna ideal para esse tipo de situação.
 
@@ -167,3 +182,5 @@ Com isso é possível concluir que o modelo ainda precisa de melhorias para cons
 
 
 ## Referências
+	
+[1] https://membrane-australasia.org/
