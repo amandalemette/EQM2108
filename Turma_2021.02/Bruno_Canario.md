@@ -1,6 +1,6 @@
-Trabalho final da disciplina EQM2108
-
 # Classificação de membranas polímericas utilizando modelagem por floresta aleatória
+
+Trabalho final da disciplina EQM2108
 
 Aluno: Bruno Canario
 
@@ -21,8 +21,10 @@ Uma forma alternativa de imputar o banco de dados é prever a permeabilidade de 
 ## Metodologia
 A base de dados utilizada foi retirada do site da Membrane Society of Australasia [1], o qual funciona como um depósito colaborativo de dados resultantes de trabalhos envolvendo membranas ao redor do mundo. Dentro do mesmo é possível selecionar o par de substâncias sobre as quais deseja-se saber os dados de permeabilidade e seletividade. Para o atual trabalho, que visa o estudo da permeabilidade de gás carbônico (CO2) em gás natural, o par escolhido foi CO2/CH4. Sendo assim, a seletividade CO2/CH4 e a permeabilidade de CO2 são usadas como variáveis de entrada para classificar os diferentes materiais que constituem as membranas.	Os dados estão representados no site também em forma de gráfico conforme a Figura 1 abaixo, sendo separadas em cores diferentes as 26 classes de materiais poliméricos que constituem as membranas. 
 
-![image](https://user-images.githubusercontent.com/95252686/144330342-37679d89-65ae-4acd-b303-23fe2d5bd1ec.png) width = 500 heigth = 500
-<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/corr.png?raw=true"  width=900 height=525 /><center>
+![image](https://user-images.githubusercontent.com/95252686/144330342-37679d89-65ae-4acd-b303-23fe2d5bd1ec.png)
+
+<center><img src="https://github.com/amandalemette/EQM2108/blob/443243e96763554bcbc03e7f08a4f5087bbdd180/Turma_2021.02/Imagens/grafico_dados.png?raw=true"  /><center>
+
 Figura 1 - Gráfico com todos os dados utilizados
 
 As classes, as quais foram codificadas em valores numéricos de 0 a 25 para facilitar a identificação, possuem ao todo 1011 dados coletados. Entretanto, as mesmas possuem grandes desbalanços na quantidade de dados de cada uma, como é possível ver na Tabela 1 abaixo, onde a classe 11 possui muito mais dados que as demais. 
@@ -44,6 +46,9 @@ Após criado e treinado o modelo, o mesmo é avaliado de acordo com certas métr
 
 
 ![image](https://user-images.githubusercontent.com/95252686/144332782-72bb5f8b-6840-4fea-a285-cfea2304beda.png)
+	
+<center><img src="https://github.com/amandalemette/EQM2108/blob/1555312d69186b4003b4fe8ab4cec028501120aa/Turma_2021.02/Imagens/TP_TN_FP_FN.png?raw=true"  /><center>
+
 Figura 2 - True Positive, True Negative, False Positive e False Negative
 
 
@@ -61,19 +66,28 @@ Após a separação dos dados entre conjunto de treinamento, de validação e te
 
 ![image](https://user-images.githubusercontent.com/95252686/144334637-5497329b-120a-4d60-a635-20d7e71835dd.png)
 
-
-<center><img scr= "//github.com/brunocanario/EQM2108/blob/b7309230157fa22eeac6eaf1256ddd3b0160b773/Turma_2021.02/Imagens/Historico%20de%20otimiza%C3%A7%C3%A3o%20optuna.png?raw=true" width = 900 height = 500 />
+<center><img src="https://github.com/amandalemette/EQM2108/blob/1555312d69186b4003b4fe8ab4cec028501120aa/Turma_2021.02/Imagens/Historico%20de%20otimiza%C3%A7%C3%A3o%20optuna.png?raw=true"  /><center>
 	
 Figura 3 - Histórico da otimização dos hiperparâmetros
 
 
 Como é possível ver na Figura 4 abaixo, o max_depth apresentou menor flexibilidade de valores do que os outros dois parâmetros, já que somente em max_depth = 7 obteve-se desempenho máximo. Em contrapartida, em min_samples_leaf e min_samples_split foi visto que o melhor desempenho foi obtido em mais de uma possibilidade. Isso evidencia uma maior importância do max_depth para o resultado final em comparação com os outros dois hiperparâmetros. Isso fica evidente na Figura 5, onde é utilizada a função optuna.visualization.plot_param_importances (), a qual mostra a importância de cada hiperparâmetro e o max_depth se confirma como o mais importante com 0,82, enquanto os demais demostram somente 0,16 e 0,01.
 
+![image](https://user-images.githubusercontent.com/95252686/144446485-a3a02b79-6bde-4ebf-8b99-3eab65dd6e9e.png)
+	
+<center><img src="https://github.com/amandalemette/EQM2108/blob/1555312d69186b4003b4fe8ab4cec028501120aa/Turma_2021.02/Imagens/Slice%20Plot.png?raw=true"  /><center>	
+
 Figura 4 – SLICE PLOT
+	
+
 Figura 5 – HYPERPARAMETER IMPORTANCES
 
 A primeira iteração é a que fica salva como ótima para o “optuna”, e nesse caso foi max_depth = 7, min_samples_leaf = 4 e min_samples_split = 4. Então foi essa a combinção utilizada no modelo criado. Após criado e treinado o modelo, a árvore criada foi a apresentada na Figura 6.
 
+![image](https://user-images.githubusercontent.com/95252686/144446995-a0ff949f-0b45-45e7-ad2d-10f4fb14d9b1.png)
+	
+<center><img src="https://github.com/amandalemette/EQM2108/blob/1555312d69186b4003b4fe8ab4cec028501120aa/Turma_2021.02/Imagens/tree.png?raw=true"  /><center>	
+	
 Figura 6 – Árvore construída
 
 Agora para avaliar o modelo foi primeiramente calculado a accuracy, precisiom, recall e F1-Score do treinamento e do teste. Para o treinamento, a accuracy foi de 0.8789546 enquanto que para o teste foi de 0.75490196. Já para a precision, recall e F1-Score os resultados estão apresentados nas tabelas 2 e 3 abaixo respectivamente para treinamento e teste.
