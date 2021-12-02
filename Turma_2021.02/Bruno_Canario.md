@@ -30,7 +30,22 @@ Figura 1 - Gráfico com todos os dados utilizados
 As classes, as quais foram codificadas em valores numéricos de 0 a 25 para facilitar a identificação, possuem ao todo 1011 dados coletados. Entretanto, as mesmas possuem grandes desbalanços na quantidade de dados de cada uma, como é possível ver na Tabela 1 abaixo, onde a classe 11 possui muito mais dados que as demais. 
 
 Tabela 1 - Quantidade de dados por classe de material das membranas
-TABELAAAAAAAAAAAAAAAAAAAAAAAAA
+
+Classe | Quantidade de dados | Classe | Quantidade de dados
+:---: | :---: | :---: | :---:
+11 | 249 | 15 | 24 
+12 | 98 | 21 | 20
+17 | 74 | 0 | 14
+6 | 69 | 10 | 14
+20 | 62 | 19 | 13
+8 | 61 | 3 | 11
+25 | 53 | 5 | 10
+7 | 39 | 1 | 10
+2 | 37 | 18 | 10
+16 | 36 | 23 | 8
+22 | 31 | 24 | 5
+9 | 29 | 4 | 5
+13 | 25 | 14 | 4
 
 Esse desbalanço torna a modelagem bastante complicada, comprometendo a capacidade preditiva do modelo. Portanto, após algumas tentativas iniciais de modelar dessa forma e obtenção de métricas não satisfatórias do conjunto de teste, foi tomada uma medida para contornar esse problema. A classificação passou a se basear na presença ou ausência da classe 11, ou seja, uma classificação binária onde a presença da classe 11 representa o número 1 e a ausência da classe 11 representa o número 0. Apesar de ainda prevalecer um desbalanço, a predição do modelo fica facilitada tendo somente dois grandes grupos.
 
@@ -103,10 +118,21 @@ Nota-se que os resultados não são excelentes, porém podem ser considerados sa
 
 
 As matrizes de confusão estão descritas abaixo nas Figuras 7, 8, 9 e 10 e é possível verificar que novamente o modelo acertou a predição da classe 0 muito mais precisamente do que da classe 1. No treinamento foi melhor do que no teste, no qual o modelo teve mais erros do que acertos, inclusive.
-	
+
+<center><img src="https://github.com/amandalemette/EQM2108/blob/788e52a115504f3b62db9ffe39d8179ad769602a/Turma_2021.02/Imagens/confusion_matrix_train.png?raw=true"  /><center>
+
 Figura 7 – Matriz de confusão com valores absolutos do treinamento 
+
+<center><img src="https://github.com/amandalemette/EQM2108/blob/788e52a115504f3b62db9ffe39d8179ad769602a/Turma_2021.02/Imagens/confusion_matrix_test.png?raw=true"  /><center>
+	
 Figura 8 – Matriz de confusão com valores absolutos do teste
+
+<center><img src="https://github.com/amandalemette/EQM2108/blob/788e52a115504f3b62db9ffe39d8179ad769602a/Turma_2021.02/Imagens/confusion_matrix_train_perc.png?raw=true"  /><center>
+	
 Figura 9 – Matriz de confusão com valores percentuais do treinamento 
+
+<center><img src="https://github.com/amandalemette/EQM2108/blob/788e52a115504f3b62db9ffe39d8179ad769602a/Turma_2021.02/Imagens/confusion_matrix_test_perc.png?raw=true"  /><center>
+	
 Figura 10 – Matriz de confusão com valores percentuais do teste
 
 
@@ -117,7 +143,12 @@ Figura 11 – Curva de Aprendizagem
 
 Por fim, a curva ROC e a curva Precision-Recall estão representadas na Figuras 12 e 13 abaixo. 
 
+<center><img src="https://github.com/amandalemette/EQM2108/blob/788e52a115504f3b62db9ffe39d8179ad769602a/Turma_2021.02/Imagens/curva_ROC.png?raw=true"  /><center>	
+
 Figura 12 – Curva ROC
+
+<center><img src="https://github.com/amandalemette/EQM2108/blob/788e52a115504f3b62db9ffe39d8179ad769602a/Turma_2021.02/Imagens/curva_precision-recall.png?raw=true"  /><center>	
+	
 Figura 13 – Curva Precision-Recall
 
 
@@ -128,7 +159,7 @@ TABELAAAAAAAAAA
 
 Já em relação à curva precision-recall, ela plota o recall no eixo X e a precision no eixo Y. Porém, diferentemente da curva ROC, a curva precision-recall é mais útil para situações onde a classificação binária possui um desbalanceamento na quantidade de dados entre as duas classes. Em especial há muitos exemplos onde o número de dados da classe 0 é muito maior do que na classe 1 e nesse caso interessa-se menos na habilidade do modelo de prever a classe 0 (True Negatives). Isso porque no cálculo de precision e recall não se faz uso de True Negatives, estando apenas interessado na predição correta na classe minoritária (classe 1). Os True Negatives estão presentes na curva ROC dentro da taxa de False Positives, o que é evitado na curva precision-recall e por isso se torna ideal para esse tipo de situação.
 
-	Normalmente a curva ROC apresenta uma perspectiva mais otimista sobre a habilidade do modelo de previsão quando os dados estão desbalanceados, e isso pode levar a interpretações incorretas e conclusões precipitadas sobre a performance do modelo. Isso é possível ser visto nos gráficos acima e nas métricas que quantificam a área abaixo da curva e, portanto, a habilidade do modelo. Para a curva ROC, a área abaixo da curva possui valor de 0,899, já para a curva precision-recall o valor foi de 0,797. Outra métrica de quantificação de qualidade para a curva precision-recall é o valor de f1, que é a média harmônica da precision e do recall, e apresenta valores entre 0 e 1. No caso do modelo criado ela teve um valor de 0,510, o que é bastante baixo. Isso comprova como a curva ROC mascara de certa forma o desempenho do modelo, que acaba sendo mais realista através curva precision-recall.
+Normalmente a curva ROC apresenta uma perspectiva mais otimista sobre a habilidade do modelo de previsão quando os dados estão desbalanceados, e isso pode levar a interpretações incorretas e conclusões precipitadas sobre a performance do modelo. Isso é possível ser visto nos gráficos acima e nas métricas que quantificam a área abaixo da curva e, portanto, a habilidade do modelo. Para a curva ROC, a área abaixo da curva possui valor de 0,899, já para a curva precision-recall o valor foi de 0,797. Outra métrica de quantificação de qualidade para a curva precision-recall é o valor de f1, que é a média harmônica da precision e do recall, e apresenta valores entre 0 e 1. No caso do modelo criado ela teve um valor de 0,510, o que é bastante baixo. Isso comprova como a curva ROC mascara de certa forma o desempenho do modelo, que acaba sendo mais realista através curva precision-recall.
 
 
 ## Conclusões
