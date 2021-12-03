@@ -94,10 +94,11 @@ Como é possível ver na Figura 4 abaixo, o max_depth apresentou menor flexibili
 	
 <center><img src="https://github.com/amandalemette/EQM2108/blob/1555312d69186b4003b4fe8ab4cec028501120aa/Turma_2021.02/Imagens/Slice%20Plot.png?raw=true"  /><center>	
 
-Figura 4 – SLICE PLOT
-	
+Figura 4 – Performance para cada valor de hiperparâmetro
 
-Figura 5 – HYPERPARAMETER IMPORTANCES
+<center><img src="https://github.com/amandalemette/EQM2108/blob/d5d64283a7a1ca48587726eaa59c811410957577/Turma_2021.02/Imagens/importancia_hiperparametros.png?raw=true"  /><center>
+	
+Figura 5 – Importância de hiperparâmetros
 
 A primeira iteração é a que fica salva como ótima para o “optuna”, e nesse caso foi max_depth = 7, min_samples_leaf = 4 e min_samples_split = 4. Então foi essa a combinção utilizada no modelo criado. Após criado e treinado o modelo, a árvore criada foi a apresentada na Figura 6.
 
@@ -153,9 +154,9 @@ Figura 10 – Matriz de confusão com valores percentuais do teste
 
 A curva de aprendizagem, representada na Figura 11, apresentou o comportamento esperado, onde o desempenho do treinamento é mais alto no começo da aprendizagem e vai diminuindo com o tempo, e o desempenho do teste começa mais baixo e tende a ir aumentando com o tempo, e assim a as curvas se aproximam.
 
+<center><img src="https://github.com/amandalemette/EQM2108/blob/401484dcce8e52e23d9d8ef290315677e27cedec/Turma_2021.02/Imagens/curva_de_aprendizagem.png?raw=true"  /><center>
 	
 Figura 11 – Curva de Aprendizagem
-
 
 Por fim, a curva ROC e a curva Precision-Recall estão representadas na Figuras 12 e 13 abaixo. 
 
