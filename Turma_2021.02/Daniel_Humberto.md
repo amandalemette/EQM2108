@@ -49,7 +49,9 @@ Portanto, o presente trabalho tem por objetivo, estimar a energia de ativação,
 
 A análise experimental foi realizada no analisador térmico Shimadzu, modelo DTG-60, com rampa de aquecimento de 5°C/min até 600°C. A figura 1 mostra o gráfico construído durante o ensaio:
 
-"https://github.com/amandalemette/EQM2108/blob/41cd50b072f687666f5945788efad9e6336ee0fd/Turma_2021.02/Imagens/Gr%C3%A1fico_TGA_Trabalho_Final_Daniel%20Humberto.jpg?raw=true"
+<center><img src="https://github.com/amandalemette/EQM2108/blob/41cd50b072f687666f5945788efad9e6336ee0fd/Turma_2021.02/Imagens/Gr%C3%A1fico_TGA_Trabalho_Final_Daniel%20Humberto.jpg?raw=true"  width=900 height=525 /><center>
+  
+
 
 Analisando a curva de DTG, em azul, nota-se que a decomposição do material é uma reação exotérmica, pois o pico da curva está para cima, com fluxo térmico positivo. Há dois picos e descontinuidades na curva, indicando reações diferentes ao longo do processo, indicando uma complexidade para a simulação dos dados experimentais. O gráfico foi construído com base nos dados obtidos da reação, que são tempo, temperatura, DTG e massa da amostra, sendo estas informações o banco de dados a ser usado no enxame de partículas.
 Os dados coletados do ensaio de TGA possuem, originalmente, uma variação muito pequena no tempo (1 segundo) e há elementos ruidosos no conjunto. 
