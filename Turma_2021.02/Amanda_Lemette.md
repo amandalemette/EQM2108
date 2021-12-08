@@ -37,7 +37,11 @@ Para ficar maior a equação:
 
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
 
-<a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;y&space;=&space;a*b&space;&plus;&space;\frac{c}{d}&space;&plus;&space;a^3" target="_blank"><img 
+Bom, eu escrevi as equações anteriores no site:
+
+https://www.codecogs.com/latex/eqneditor.php#google_vignette
+
+selecione svg e lá embaixo, selecione HTML e copie o código. 
 
 # Resultados e Discussões
 
