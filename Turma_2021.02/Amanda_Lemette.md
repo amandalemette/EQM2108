@@ -31,6 +31,10 @@ jfaklfjalskjfsalkfasjfaklfjalskjfsalkfasjfaklfjalskjfsalkfasjfaklfjalskjfsalkfas
 ## Testando escrever equações por aqui...
 <img src="https://latex.codecogs.com/svg.latex?\inline&space;y&space;=&space;a*b&space;&plus;&space;\frac{c}{d}&space;&plus;&space;a^3" title="y = a*b + \frac{c}{d} + a^3" />  
 
+Para ficar maior a equação:
+
+<img src="https://latex.codecogs.com/svg.latex?\inline&space;y&space;=&space;a*b&space;&plus;&space;\frac{c}{d}&space;&plus;&space;a^3" title="\Large y = a*b + \frac{c}{d} + a^3" />  
+
 <img src="https://latex.codecogs.com/svg.latex?\Large&space;x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" title="\Large x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}" />
 
 <a href="https://www.codecogs.com/eqnedit.php?latex=\inline&space;y&space;=&space;a*b&space;&plus;&space;\frac{c}{d}&space;&plus;&space;a^3" target="_blank"><img 
