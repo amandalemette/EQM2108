@@ -18,23 +18,19 @@ Estruturas organometálicas (MOFs) são um tipo de material cristalino microporo
 A análise termogravimétrica é uma ferramenta bastante utilizada para caracterização de materiais, incluindo MOFs [10, 11]. Essa técnica monitora a mudança de peso do material em função da temperatura ao longo do tempo [12].
 A taxa de reação de decomposição no ensaio de TGA pode ser descrita como a equação abaixo:
 
-dX/dt=-k.X^n
+<img src="https://latex.codecogs.com/svg.latex?dX/dt=-k.X^n" title="dX/dt=-k.X^n" /></a>
 
 onde X é a massa da amostra, t é o tempo, k é a constante cinética e n a ordem de reação. Esta expressão pode ser relacionada com outra:
 
-X=m_0-m_0  .(w/w_0 )
+<img src="https://latex.codecogs.com/svg.latex?X=m_0-m_0&space;.(w/w_0&space;)" title="X=m_0-m_0 .(w/w_0 )" /></a>
 
 onde m0 é a massa inicial, w0 é a perda de massa inicial e w é a perda de massa num tempo qualquer. Para o tempo final, w = w∞, que é a perda máxima ao final da análise. e X = 0. Então, a derivada de X com relação ao tempo é:
 
-dX/dt=-m_0/w_∞ .X^n
+<img src="https://latex.codecogs.com/svg.latex?dX/dt=-(m_0/w_f&space;).X^n" title="dX/dt=-(m_0/w_f ).X^n" /></a>
 
-Logo:
+Se <img src="https://latex.codecogs.com/svg.latex?f=w/w_f" title="f=w/w_f" /></a> , então chegamos a:
 
-(d(w/w_∞ ))/dt=k.m_0^(n-1).(1-w/w_∞ ).n
-
-Se f = w/w_∞ , então chegamos a:
-
-df/dt=k_0.m_0^(n-1).(1-f)^n.exp⁡(-E_a/RT)
+<img src="https://latex.codecogs.com/svg.latex?df/dt=k_0.m_0^(n-1).(1-f)^n.exp(-E_a/RT)" title="df/dt=k_0.m_0^(n-1).(1-f)^n.exp(-E_a/RT)" /></a>
 
 onde k segue a equação de Arrhenius em relação à temperatura.
 A última equação possui informações que podem ser retiradas dos dados de TGA, como df/dt e f.
@@ -42,8 +38,9 @@ A última equação possui informações que podem ser retiradas dos dados de TG
 A otimização por enxame de partículas (PSO – Particle Swarm Optimiztion) é um método heurístico de pesquisa global baseada no comportamento natural das partículas de uma população, inspirada no comportamento coletivo de um bando de pássaros ou cardume de peixes. O algoritmo usa o modelo de busca para velocidade e posição, onde um número de partículas compõe uma população e a posição de cada partícula representa uma solução em potencial no espaço. Já a velocidade da partícula é usada para atualizar a posição e a função objetivo “fitness” é usada para avaliar a posição das partículas. No início da busca, velocidade e posição de cada partícula na população são inicializadas e, em seguida, ajustadas por iterações[13].
 em 1995, foram propostas as equações de velocidade e posição para a técnica [14]:
 
-v_(i,d)^(k+1)= v_(i,d)^k+ c_1.r_1  .(p_(i,d)^k- x_(i,d)^k )+  c_2.r_2  .(p_(global,d)^k- x_(i,d)^k )
-x_(i,d)^(k+1)= x_(i,d)^k+v_(i,d)^(k+1)  
+<img src="https://latex.codecogs.com/svg.latex?v_(i,d)^(k&plus;1)=&space;v_(i,d)^k&plus;&space;c_1.r_1&space;.(p_(i,d)^k-&space;x_(i,d)^k&space;)&plus;&space;c_2.r_2&space;.(p_(global,d)^k-&space;x_(i,d)^k&space;)" title="v_(i,d)^(k+1)= v_(i,d)^k+ c_1.r_1 .(p_(i,d)^k- x_(i,d)^k )+ c_2.r_2 .(p_(global,d)^k- x_(i,d)^k )" /></a>
+
+<img src="https://latex.codecogs.com/svg.latex?x_(i,d)^(k&plus;1)=&space;x_(i,d)^k&plus;v_(i,d)^(k&plus;1)" title="x_(i,d)^(k+1)= x_(i,d)^k+v_(i,d)^(k+1)" /></a>  
 
 onde v e x são, respectivamente, velocidade e posição no espaço de busca da partícula i,  d é a direção de busca, k é o número de iteração, c1 e c2 são duas constantes positivas chamadas de parâmetro cognitivo e social, r1 e r2 são números aleatórios com distribuição uniforme no intervalo de 0 a 1, sempre diferentes para cada direção, partícula e iteração. pi é o melhor ponto encontrado pela partícula i e pglobal é o melhor valor encontrado por todo o enxame.
 Portanto, o presente trabalho tem por objetivo, estimar a energia de ativação, a constante cinética e a ordem de reação da decomposição da MOF utilizando a técnica de PSO sobre os dados de TGA, gerados experimentalmente.
