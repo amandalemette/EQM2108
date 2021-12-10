@@ -73,26 +73,25 @@ Por fim, fez-se uma análise comparativa da acurácia de diversos modelos de cla
 # Resultados e Discussões
 Inicialmente, construiu-se a matriz de correlação entre as variáveis de entrada e a bandeira de estabilidade para compreendermos melhor a influência de cada variável na classificação final.
 
-<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/correlation_matrix_PHM.png?raw=true"  width=900 height=525 /><center>
-<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/corr.png?raw=true"  width=900 height=525 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/correlation_matrix_PHM.png?raw=true" width=900 height=525 /><center>
 
 Em seguida aplicou-se o modelo DecisionTreeClassifier com os hiperparâmetros padrão da biblioteca sklearn, a fim de se observar a influência da sua otimização. A seguir, podemos ver a matriz de confusão para os dados de treino e teste com acurácia igual a 1.0 e 0.955. Podemos ver que esse modelo pode estar ocorrendo um problema de overfitting, devido a grande diferença entre sua acurácia de treinamento e treino e o valor unitário para treinamento.
 
-<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/correlation_matrix_PHM.png?raw=true" width=900 height=525 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/confusion_matrix_default_training_PHM.png?raw=true" width=900 height=525 /><center>
 
-<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/confusion_matrix_default_test_PHM.png?raw=true"  width=900 height=525 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/confusion_matrix_default_test_PHM.png?raw=true"  width=900 height=525 /><center>
 
 Em seguida, utilizando a biblioteca optuna, os parâmetros e intervalos: max_depth(1, 15), min_samples_split(2, 5) e min_samples_leaf(2,5) foram otimizados, para que possamos avaliar esse possível overfitting. 
 
-<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/optimization_PHM.png?raw=true"  width=900 height=525 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/optimization_PHM.png?raw=true"  width=900 height=525 /><center>
 
 Os resultados com melhor valor foram determinados com max_depth = 9, min_samples_split = 2 e min_samples_leaf = 3, além da importância do hiperparâmetro max_depth ter a maior importância para o valor objetivo, com 0,975 de relevância.
 
-<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/relevancia_PHM.png?raw=true"  width=900 height=525 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/relevancia_PHM.png?raw=true"  width=900 height=525 /><center>
 
 Em seguida, montou-se novamente a matriz de confusão do treino e teste, obtendo resultados de acurácia de 0,992 e 0,966, respectivamente. Esses valores indicam que o modelo com os hiperparâmetros padrão estavam sofrendo problema de overfitting devido a maior diferença entre acurácia de treino e teste quando comparados aos resultados dos parâmetros otimizados.  
 
-<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/confusion_matrix_otimizado_training_PHM.png?raw=true"  width=900 height=525 /> <img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/releconfusion_matrix_otimizado_test_PHMvancia_PHM.png?raw=true"  width=900 height=525 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/confusion_matrix_otimizado_training_PHM.png?raw=true"  width=900 height=525 /> <img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/releconfusion_matrix_otimizado_test_PHMvancia_PHM.png?raw=true"  width=900 height=525 /><center>
 
 Finalmente, utilizando o método de validação cruzada KFold Cross-Validation (kfold = 10) e Leave-one-out Cross Validation (LOOCV) os seguintes modelos com hiperparâmetros padrão foram avaliados, assim como seus respectivos resultados de acurácia de treino (ideal = LOOCV; cv = kfold10):
 
