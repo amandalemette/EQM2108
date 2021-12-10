@@ -81,7 +81,7 @@ Em seguida aplicou-se o modelo DecisionTreeClassifier com os hiperparâmetros pa
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/confusion_matrix_default_test_PHM.png?raw=true"  width=382 height=290 /><center>
 
-Em seguida, utilizando a biblioteca optuna, os parâmetros e intervalos: max_depth(1, 15), min_samples_split(2, 5) e min_samples_leaf(2,5) foram otimizados, para que possamos avaliar esse possível overfitting. 
+Nesse sentido, utilizando a biblioteca optuna, os parâmetros e intervalos: max_depth(1, 15), min_samples_split(2, 5) e min_samples_leaf(2,5) foram otimizados, para que possamos avaliar esse possível overfitting. 
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/optimization_PHM.png?raw=true"  width=951 height=450 /><center>
 
@@ -89,7 +89,7 @@ Os resultados com melhor valor foram determinados com max_depth = 9, min_samples
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/relevancia_PHM.png?raw=true"  width=951 height=450 /><center>
 
-Em seguida, montou-se novamente a matriz de confusão do treino e teste, obtendo resultados de acurácia de 0,992 e 0,966, respectivamente. Esses valores indicam que o modelo com os hiperparâmetros padrão estavam sofrendo problema de overfitting devido a maior diferença entre acurácia de treino e teste quando comparados aos resultados dos parâmetros otimizados.  
+Assim, montou-se novamente a matriz de confusão do treino e teste, obtendo resultados de acurácia de 0,992 e 0,966, respectivamente. Esses valores indicam que o modelo com os hiperparâmetros padrão estavam sofrendo problema de overfitting devido a maior diferença entre acurácia de treino e teste quando comparados aos resultados dos parâmetros otimizados.  
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/confusion_matrix_otimizado_training_PHM.png?raw=true"  width=382 height=290 /><center>
  
