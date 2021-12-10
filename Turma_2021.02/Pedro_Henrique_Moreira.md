@@ -93,7 +93,7 @@ Em seguida, montou-se novamente a matriz de confusão do treino e teste, obtendo
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/confusion_matrix_otimizado_training_PHM.png?raw=true"  width=382 height=290 /><center>
  
-<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/releconfusion_matrix_otimizado_test_PHMvancia_PHM.png?raw=true"  width=382 height=290 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/main/Turma_2021.02/Imagens/confusion_matrix_otimizado_test_PHM.png?raw=true"  width=382 height=290 /><center>
 
 Finalmente, utilizando o método de validação cruzada KFold Cross-Validation (kfold = 10) e Leave-one-out Cross Validation (LOOCV) os seguintes modelos com hiperparâmetros padrão foram avaliados, assim como seus respectivos resultados de acurácia de treino (ideal = LOOCV; cv = kfold10):
 
