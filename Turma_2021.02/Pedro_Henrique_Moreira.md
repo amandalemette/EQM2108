@@ -74,6 +74,7 @@ Por fim, fez-se uma análise comparativa da acurácia de diversos modelos de cla
 Inicialmente, construiu-se a matriz de correlação entre as variáveis de entrada e a bandeira de estabilidade para compreendermos melhor a influência de cada variável na classificação final.
 
 <center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/correlation_matrix_PHM.png?raw=true"  width=900 height=525 /><center>
+<center><img src="https://github.com/amandalemette/EQM2108/blob/2a19ba9f0ef02e0530489f2492546d768902314d/Turma_2021.02/Imagens/corr.png?raw=true"  width=900 height=525 /><center>
 
 Em seguida aplicou-se o modelo DecisionTreeClassifier com os hiperparâmetros padrão da biblioteca sklearn, a fim de se observar a influência da sua otimização. A seguir, podemos ver a matriz de confusão para os dados de treino e teste com acurácia igual a 1.0 e 0.955. Podemos ver que esse modelo pode estar ocorrendo um problema de overfitting, devido a grande diferença entre sua acurácia de treinamento e treino e o valor unitário para treinamento.
 
