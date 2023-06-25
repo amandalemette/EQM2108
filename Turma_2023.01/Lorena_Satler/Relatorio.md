@@ -101,7 +101,7 @@ $∞$ - ar
 $o$- fora do tubo
 
 
-4. Hipóteses
+### 4. Hipóteses
 
 Como existem muitas variáveis independentes em um trocador de calor, é justificado considerar algumas hipóteses nesta modelagem, reduzindo o número de EDOs necessárias para definir as variáveis do processo. 
 
@@ -125,7 +125,7 @@ A figura abaixo mostra um exemplo de simplificação onde o trocador de calor é
 
 ![Captura de Tela 2023-06-25 às 17 59 06](https://github.com/amandalemette/EQM2108/assets/135286174/d6ee24d1-1a71-4917-9a77-ceb457dd35a7)
 
-### 6. Estudo de caso
+### 5. Estudo de caso
 
 Resfriar um fluido a 330 K em um trocador de calor de tubo duplo em contracorrente com água fria entrando a 250 K como fluido refrigerante.
 
@@ -167,7 +167,7 @@ $ρ_t$ =1030 kg/m^3 (densidade do fluido do lado do tubo)
 
 $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
-### 8. Conclusão
+### 6. Conclusão
 
 Como os trocadores de calor têm uma grande variedade de aplicações, especialmente em processos químicos, ar condicionado e refrigeração, o controle do sistema é essencial para a otimização e a realização de previsões dos processos. 
 
