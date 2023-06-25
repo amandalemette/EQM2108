@@ -1,1 +1,21 @@
+ Trabalho final da disciplina EQM2108
+## Simulação Bioreator semi-batelada
+Aluno: Ian Monteiro Werner
+Professora: Amanda Lemette
 
+# Resumo
+O presente trabalho teve como objetivo a Simulação de um biorreator em semi-batelada de acordo com o exemplo 5.5.2 do livro "Chemical Process Modeliing and Computer Simulation". 
+Esse reator visa a produção de etanol a partir de glicose por meio da levedura Sacaromices Cerevisiae. A partir da discussão do próprio autor, é proposto simular em semi-batelada a partir do equacionamento de um reator tipo CSTR
+
+
+#Introdução
+
+A simulação de um bioreator em semi batelada é uma ferramenta valiosa no campo da engenharia bioquímica e biotecnologia. Essa abordagem envolve a operação do bioreator em um modo misto, combinando características da operação em batelada e contínua.
+
+No bioreator em semi batelada, o processo é dividido em fases distintas. Inicialmente, ocorre uma fase batelada, na qual o meio de cultura e os microrganismos são adicionados ao sistema e a reação bioquímica é iniciada. Essa fase permite um maior controle sobre as condições iniciais e o monitoramento das variáveis-chave, como temperatura, pH e concentração de nutrientes.
+
+Após a fase batelada, o bioreator entra em uma fase de alimentação contínua, na qual um suplemento de nutrientes é adicionado periodicamente para manter as condições ideais para o crescimento dos microrganismos e a produção do produto desejado. Essa estratégia permite um maior controle da cinética da reação e a maximização da produção.
+
+O modo de operação em (semi)batelada é o mais comumente utilizado na indústria de fermentação, visando manter a esterilidade, evitar inibição do produto e/ou substrato e garantir flexibilidade operacional para acompanhar as mudanças nas demandas do mercado. Esta seção discute a produção de etanol em um fermentador de levedura de panificação (baker's yeast) operado nos modos de batelada e semibatelada.
+
+Em suma, a simulação de um bioreator em semi batelada é uma ferramenta poderosa para a engenharia bioquímica, permitindo o estudo e o aprimoramento de processos biotecnológicos com maior controle e eficiência. Essa abordagem contribui para o desenvolvimento de soluções sustentáveis e economicamente viáveis na produção de diversos produtos de interesse, desde medicamentos e alimentos até biocombustíveis e produtos químicos renováveis.
