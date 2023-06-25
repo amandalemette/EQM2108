@@ -1,1 +1,18 @@
+ Trabalho final da disciplina EQM2108
+## Fed-Batch Bioreactor
+Aluno: Ian Monteiro Werner
+Professora: Amanda Lemette
+
+# Resumo
+O presente trabalho teve como objetivo a simulação de um bioreator em semi-batelada. Esse bioreator visa a produção de etanol a partir de glicose por meio da bactéria Saccaromices Cerevisiae. O livro propôe uma série de equações a partir do balanço de massa de cada componente.
+# Introdução
+
+O monitoramento das condições operacionais de sistemas hidráulicos, como forma de reduzir tempo de inatividade e custo de manutenção, utilizando o método estatístico, vem -se destacando na indústria. Esse método se baseia na análise das condições de operação do sistema nos momentos de falhas, construindo-se um banco de dados histórico suficientemente grande para prever falhas futuras.
+
+
+Nesse sentido, o modelo de previsão de falhas pode ser anexado a um algoritmo de aprendizagem supervisionada, como por exemplo, scatter-based supervised learning, ou rede neural, tal qual, feedforward artificial neural network, para detectar e classificar falhas futuras e evitá-las. 
+ 
+
+
+# Metodologia
 
