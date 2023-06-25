@@ -26,13 +26,13 @@ O trocador de calor de tubo duplo é o tipo mais simples de trocador de calor e 
 
 ![Captura de Tela 2023-06-25 às 17 55 00](https://github.com/amandalemette/EQM2108/assets/135286174/127ea6b1-c16b-4e11-bd58-18abb4aad3fc)
 
-### 3. Modelagem com EDO's
+### 3. Metodologia 
 
 O modelo apresentado aplica equações diferenciais ordinárias (ODEs) para descrever o processo e fornecer os gráficos das temperaturas de saída versus tempo. 
 
 O tubo foi dividido em três segmentos diferenciais (Δz). Para cada unidade de Δz, e cada fluido naquela unidade do trocador de calor, é necessária uma equação de aproximação. 
 
-### 3.1. Balanço Energético
+### 3.1. Balanço Energético - Modelagem com EDO's
 
 ### 3.1.1. Balanço de Energia do Fluido do Lado do Tubo.
 
@@ -167,10 +167,9 @@ $ρ_t$ =1030 kg/m^3 (densidade do fluido do lado do tubo)
 
 $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
-###8. Discussões 
+### 8. Discussões 
 
-A modelagem dinâmica de um trocador de calor permite que os engenheiros tenham mais controle no futuro, crie um modelo para determinar quando esse processo entrará em estado estacionário e faça um gráfico dos perfis de temperatura dos fluxos de saída.
+A modelagem dinâmica de um trocador de calor de tubo duplo permite que os engenheiros prevejam como as alterações das variáveis do sistema podem afetar as propriedades dos fluidos de saída e determinar quando o processo entrará em estado estacionário, por exemplo.
 
-Existem considerações e simplificações necessárias para resolver os balanços diferenciais de energia. A validade dessas suposições depende da precisão de um modelo que você precisa.
-
+Existem considerações e simplificações apropriadas para diminuir o número de EDO's e resolver os balanços diferenciais de energia, devido ao número notável de variáveis independentes em um trocador de calor, no entanto, a validade dessas suposições depende da precisão do modelo desejado.
 
