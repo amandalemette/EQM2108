@@ -1,18 +1,18 @@
 ## EQM 2108 – MODELAGEM E SIMULAÇÃO DE PROCESSOS NA ENGENHARIA QUÍMICA
 
-### PROFESSORA: AMANDA LEMETTE
+### TRABALHO FINAL DE DISCIPLINA
 
 ### ALUNA: LORENA SATLER PENA
 
-### TRABALHO FINAL DE DISCIPLINA
+### PROFESSORA: AMANDA LEMETTE
 
 ## TÍTULO: MODELAGEM DINÂMICA DE UM TROCADOR DE CALOR DE TUBO DUPLO
 
-### 1. OBJETIVO
-Criar um modelo dinâmico  de um trocador de calor de duplo tubo para prever como as alterações das variáveis do sistema podem afetar as propriedades de saída.
+### 1. Objetivo
+Validar um modelo dinâmico de um trocador de calor de duplo tubo para prever como as alterações das variáveis do sistema podem afetar as propriedades dos fluidos de saída.
 
 
-### 2. INTRODUÇÃO
+### 2. Introdução
 
 Nas indústrias de processo, os trocadores de calor são equipamentos essenciais projetados para implementar a troca de calor entre dois fluidos ou mais, sujeitos a diferentes temperaturas. Eles são classificados por seu design, número de fluidos e tipo de fluxo.
 
@@ -28,9 +28,9 @@ O trocador de calor de tubo duplo é o tipo mais simples de trocador de calor e 
 
 ### 3. Modelagem com EDO's
 
-O modelo apresentado usa equações diferenciais ordinárias (ODEs) para descrever o processo e fornecer os gráficos das temperaturas de saída versus tempo. 
+O modelo apresentado aplica equações diferenciais ordinárias (ODEs) para descrever o processo e fornecer os gráficos das temperaturas de saída versus tempo. 
 
-Para cada unidade, Δz, e cada fluido naquela unidade do trocador de calor, é necessária uma equação de aproximação. 
+O tubo foi dividido em três segmentos diferenciais (Δz). Para cada unidade de Δz, e cada fluido naquela unidade do trocador de calor, é necessária uma equação de aproximação. 
 
 ### 3.1. Balanço Energético
 
@@ -38,12 +38,11 @@ Para cada unidade, Δz, e cada fluido naquela unidade do trocador de calor, é n
 
 *Taxa de acúmulo de energia térmica no fluido do lado do tubo = Taxa de entrada de energia - Taxa de saída de energia - Calor transferido do lado do casco*
 
-* O termo à esquerda no balanço de energia da equação abaixo é a quantidade de energia
-térmica que se acumula no fluido do lado do tubo e causa uma mudança em sua temperatura de saída.
+* O termo à esquerda no balanço de energia é a quantidade de energia térmica que se acumula no fluido do lado do tubo e causa uma mudança em sua temperatura de saída.
 
-* Os termos do lado direito do balanço de energia descrevem a energia térmica do fluido que entra, do fluido que sai e a quantidade de transferência de calor do fluido do lado do casco. No termo para transferência de calor do lado do casco, as temperaturas são as temperaturas das correntes de saída.
+* Os termos do lado direito do balanço de energia descrevem a energia térmica do fluido que entra, do fluido que sai e a quantidade de transferência de calor do fluido do lado do casco. No termo para transferência de calor do lado do casco, as temperaturas são as temperaturas das correntes de saída. 
 
-As temperaturas de saída mudarão conforme você estiver operando em co-corrente ou contra-corrente. O balanço de energia é escrito como:
+O balanço de energia do lado do tubo pode ser descrito como:
 
 
 $$
@@ -54,8 +53,8 @@ $$
 
 *Taxa de acúmulo de energia térmica no fluido do lado do tubo = Taxa de entrada de energia - Taxa de saída de energia - Calor transferido para o fluido do lado do tubo - Taxa de perda de calor para o ambiente* 
 
-* O termo mais à esquerda no balanço de energia acima é a quantidade de energia térmica que se acumula no fluido do lado do casco e causa uma mudança em sua temperatura de saída.
-* Os termos do lado direito do balanço de energia acima descrevem a energia térmica do fluido que entra e do fluido que sai, a transferência de calor para o fluido do lado do tubo e também o calor perdido por convecção para o ambiente.
+* O termo à esquerda no balanço de energia compreende a quantidade de energia térmica que se acumula no fluido do lado do casco e causa uma mudança em sua temperatura de saída.
+* Os termos à direita descrevem a energia térmica do fluido que entra e do fluido que sai, a transferência de calor para o fluido do lado do tubo e também o calor dissipado por convecção para o ambiente.
 
 $$
 mc_{r,s}\frac{dT_{s,out}}{dt} = \rho c_{p,s} F_{s,in} T_{s,in} - \rho c_{p,s} F_{s,out} T_{s,out} - \frac{kA_o}{\Delta z} (T_{s,out} - T_{s,out})-hA(T_s - T_∞)
@@ -63,11 +62,12 @@ $$
 
 *onde,*
 
+
 $m$ = massa do fluido $= V \rho = \rho A_{transversal} \Delta z $
 
 $c_{p} $= capacidade calorífica do fluido à pressão constante
 
-$T$ = Temperatura
+$T$ = temperatura
 
 $t$ = tempo
 
@@ -103,31 +103,23 @@ $o$- fora do tubo
 
 4. Hipóteses
 
-Existem considerações e simplificações que você pode fazer para resolver os balanços diferenciais de energia. A validade dessas suposições depende da precisão de um modelo que você precisa.
-
-Como existem muitas variáveis independentes em um trocador de calor, é preciso considerar algumas hipóteses nesta modelagem e reduzir o número de EDOs necessárias para definir as variáveis do processo. 
+Como existem muitas variáveis independentes em um trocador de calor, é justificado considerar algumas hipóteses nesta modelagem, reduzindo o número de EDOs necessárias para definir as variáveis do processo. 
 
 * Hipótese 1: Os fluidos possuem propriedades constantes e perfeita transferência de calor através do metal da tubulação. 
 
 $$C_p = a+BT+cT^2+dT^3 = constante$$
 
+* Hipótese 2: Serão desconsiderados os atrasos do sensor que mede a temperatura de saída do fluido do lado do tubo e o dispositivo de controle de vazão do fluido do lado do casco. 
 
-* Hipótese 2: A temperatura de saída do fluido do lado do tubo é monitorada por um sensor de temperatura, e a vazão do fluido do lado do casco é controlada por um dispositivo de controle de fluxo acionado. Ambos sensores estão calibrados com 100% de precisão. 
+* Hipótese 3: A resposta dinâmica do sistema do atuador para a válvula de controle é instantânea. 
 
-* Hipótese 3: O trocador de calor está bem isolado, logo, perda de calor para o ambiente é desprezada.
+* Hipótese 4: O trocador de calor está perfeitamente isolado, logo, perda de calor para o ambiente é desprezada e ocorre condução perfeita através do metal do fluido do lado do casco para o fluido do lado do tubo. Essa condução é descrita pelo coeficiente de transferência de calor, k, entre os dois fluidos.
 
 $$ℎ𝐴(𝑇𝑠−𝑇∞)=0$$
 
-* Hipótese 4: Serão desconsiderados os atrasos do sensor que mede a temperatura de saída do fluido do lado do tubo e o dispositivo de controle de vazão do fluido do lado do casco. 
+* Hipótese 5: Em vez de tomar a derivada parcial ao longo do comprimento em relação à temperatura, o tubo foi dividido em segmentos diferenciais, Δz.  Idealmente, Δz é uma seção transversal infinitamente pequena do comprimento do trocador de calor, logo, podemos tomar a temperatura em Δz como sendo a temperatura de saída das correntes quente e fria para os Δ𝑧's, respectivamente.
 
-* Hipótese 5: A resposta dinâmica do sistema do atuador para a válvula de controle é rápida. 
-
-* Hipótese 6: O trocador de calor está perfeitamente isolado e ocorre condução perfeita através do metal do fluido do lado do casco para o fluido do lado do tubo, e essa condução é descrita pelo coeficiente de transferência de calor, k, entre os dois fluidos.
-
-* Hipótese 7: Em vez de tomar a derivada parcial ao longo do comprimento em
-relação à temperatura, o tubo foi dividido em segmentos diferenciais, Δz.  Idealmente, Δz é uma seção transversal infinitamente pequena do comprimento do trocador de calor, logo, podemos tomar a temperatura em Δz como sendo a temperatura de saída das correntes quente e fria para os Δ𝑧's, respectivamente.
-
-* Hipótese 8: Vamos assumir que através deste segmento diferencial, a temperatura do líquido que sai do segmento é a mesma que a temperatura do líquido dentro do segmento. Como estamos assumindo a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão da solução.
+* Hipótese 6: Assumir que através deste segmento diferencial (Δz), a temperatura do líquido que sai do segmento é a mesma que a temperatura do líquido dentro do segmento. Como estamos assumindo a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão da solução.
 
 A figura abaixo mostra um exemplo de simplificação onde o trocador de calor é dividido em três segmentos:
 
@@ -179,5 +171,6 @@ $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
 A modelagem dinâmica de um trocador de calor permite que os engenheiros tenham mais controle no futuro, crie um modelo para determinar quando esse processo entrará em estado estacionário e faça um gráfico dos perfis de temperatura dos fluxos de saída.
 
+Existem considerações e simplificações necessárias para resolver os balanços diferenciais de energia. A validade dessas suposições depende da precisão de um modelo que você precisa.
 
 
