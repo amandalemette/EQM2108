@@ -1,10 +1,10 @@
-## EQM 2108 – MODELAGEM E SIMULAÇÃO DE PROCESSOS NA ENGENHARIA QUÍMICA
+### EQM 2108 – MODELAGEM E SIMULAÇÃO DE PROCESSOS NA ENGENHARIA QUÍMICA
 
 ### TRABALHO FINAL DE DISCIPLINA
 
-### ALUNA: LORENA SATLER PENA
+ALUNA: LORENA SATLER PENA
 
-### PROFESSORA: AMANDA LEMETTE
+PROFESSORA: AMANDA LEMETTE
 
 ## TÍTULO: MODELAGEM DINÂMICA DE UM TROCADOR DE CALOR DE TUBO DUPLO
 
@@ -167,9 +167,13 @@ $ρ_t$ =1030 kg/m^3 (densidade do fluido do lado do tubo)
 
 $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
-### 8. Discussões 
+### 8. Conclusão
 
-A modelagem dinâmica de um trocador de calor de tubo duplo permite que os engenheiros prevejam como as alterações das variáveis do sistema podem afetar as propriedades dos fluidos de saída e determinar quando o processo entrará em estado estacionário, por exemplo.
+Como os trocadores de calor têm uma grande variedade de aplicações, especialmente em processos químicos, ar condicionado e refrigeração, o controle do sistema é essencial para a otimização e a realização de previsões dos processos. 
 
-Existem considerações e simplificações apropriadas para diminuir o número de EDO's e resolver os balanços diferenciais de energia, devido ao número notável de variáveis independentes em um trocador de calor, no entanto, a validade dessas suposições depende da precisão do modelo desejado.
+A modelagem dinâmica de um trocador de calor de tubo duplo permite que os engenheiros prevejam, por exemplo, como as alterações das variáveis do processo podem afetar as propriedades dos fluidos de saída e determinar quando o sistema entrará em estado estacionário.
+
+Existem considerações e simplificações apropriadas para diminuir o número de EDO's e resolver os balanços diferenciais de energia, devido ao número notável de variáveis independentes a serem contabilizadas em um modelo de um trocador de calor, no entanto, a validade dessas suposições depende da precisão do modelo desejado.
+
+
 
