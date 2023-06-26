@@ -157,7 +157,7 @@ $ρ_s$=1000 kg/m^3 (densidade do fluido do lado do casco)
 
 $F_s$=0,1 m3/s (vazão volumétrica do fluido do lado do casco)
 
-Informações sobre o fluido do lado do Tubo (solução)
+*Informações sobre o fluido do lado do Tubo (solução)*
 
 $C_{pt}$ =1200 J/kg*K (capacidade de calor do fluido do lado do tubo)
 
@@ -171,7 +171,7 @@ $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
 ### 6. Resultados e Discussões
 
-### 7. Conclusão
+### 7. Conclusões
 
 Como os trocadores de calor têm uma grande variedade de aplicações, especialmente em processos químicos, ar condicionado e refrigeração, o controle do sistema é essencial para a otimização e a realização de previsões dos processos. 
 
