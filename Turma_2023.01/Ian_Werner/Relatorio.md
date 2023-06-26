@@ -136,6 +136,7 @@ Para função do rendimento:
 $$
 {\frac{d(x)}{dt}} = \mu x - {\frac{F}{V}}x
 $$
+
 E para o substrato S:
 
 $$
