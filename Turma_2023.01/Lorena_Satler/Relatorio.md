@@ -173,7 +173,7 @@ $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
 De acordo com gráfico gerado, é possível observar que a troca térmica acontece muito rapidamente, em t<0.0001s. 
 
-O perfil de temperatura de saída do fluido de resfriamento do lado do casco converge de para um valor mais distante da temperatura inicial de entrada (T0s = 250K), porque possui menos massa por unidade de volume e menor vazão volumétrica, entrando no estado estacionário em t=0.0001s com a temperatura de saída igual a 313K.
+O perfil de temperatura de saída do fluido de resfriamento do lado do casco converge de para um valor mais distante da temperatura inicial de entrada (T0s = 250K), porque possui menos massa por unidade de volume, entrando no estado estacionário em t=0.0001s com a temperatura de saída igual a 313K.
 
 Já o perfil de temperatura do fluido de interesse do lado do tubo teve a variação mais amena, entrando no estado estacionário em t=0.004s com a temperatura de saída igual a 280K. 
 
