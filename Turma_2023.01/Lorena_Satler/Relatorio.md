@@ -171,6 +171,21 @@ $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
 ### 6. Resultados e Discussões
 
+De acordo com gráfico gerado, é possível observar que a troca térmica acontece muito rapidamente, em t<0.0001s. O perfil de temperatura de saída do fluido de resfriamento do lado do casco converge para um valor mais distante da temperatura inicial de entrada, pois tem menos massa por unidade de volume. 
+
+A definição da área de contato se mostrou muito impor
+
+convergencia muito mais rápida
+
+velocidade do fluido 
+
+vazão 
+
+definir a área
+
+![Captura de Tela 2023-06-26 às 10 53 05](https://github.com/amandalemette/EQM2108/assets/135286174/fad3fba2-b177-4586-8f00-d4e15191c82d)
+
+
 ### 7. Conclusões
 
 Como os trocadores de calor têm uma grande variedade de aplicações, especialmente em processos químicos, ar condicionado e refrigeração, o controle do sistema é essencial para a otimização e a realização de previsões dos processos. 
