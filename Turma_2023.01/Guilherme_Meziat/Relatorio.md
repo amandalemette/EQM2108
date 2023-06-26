@@ -336,4 +336,4 @@ O próximo objetivo seria ajustar os parâmetros da coluna (principalmente, $D$,
 
 ## Referência
 
-Jana, A. K. Chemical Process Modelling and Computer Simulation 2nd Edition, Chemical Process Modelling, Department of Chemical Engineering Indian Institute of Technology Kharagpur and Computer Simulation, 2011.
+Jana, A. K. (2011) Chemical Process Modelling and Computer Simulation 2nd Edition, Chemical Process Modelling, Department of Chemical Engineering, Indian Institute of Technology Kharagpur.
