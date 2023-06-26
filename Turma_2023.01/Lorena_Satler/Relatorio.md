@@ -169,7 +169,9 @@ $ρ_t$ =1030 kg/m^3 (densidade do fluido do lado do tubo)
 
 $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
-### 6. Conclusão
+### 6. Resultados e Discussões
+
+### 7. Conclusão
 
 Como os trocadores de calor têm uma grande variedade de aplicações, especialmente em processos químicos, ar condicionado e refrigeração, o controle do sistema é essencial para a otimização e a realização de previsões dos processos. 
 
@@ -177,5 +179,10 @@ A modelagem dinâmica de um trocador de calor de tubo duplo permite que os engen
 
 Existem considerações e simplificações apropriadas para diminuir o número de EDO's e resolver os balanços diferenciais de energia, devido ao número notável de variáveis independentes a serem contabilizadas em um modelo de um trocador de calor, no entanto, a validade dessas suposições depende da precisão do modelo desejado.
 
+### 8. Referências
 
+1. Libre Texts Engineering - Acessado em 01 de junho de 2023: https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Chemical_Process_Dynamics_and_Controls_(Woolf)/06%3A_Modeling_Case_Studies/6.06%3A_ODE_and_Excel_model_of_a_Heat_Exchanger
+
+
+2. Aula 23 - Trocadores de Calor - Professor Washington Izarrabal (UFJF) - Acessado em 24 de junho de 2023: https://www.ufjf.br/washington_irrazabal/files/2014/05/Aula-23_Trocadores-de-Calor.pdf
 
