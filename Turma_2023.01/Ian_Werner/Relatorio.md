@@ -38,9 +38,11 @@ Vamos considerar:
 
 Modelo:
 Balanço de massa
+
 $$
 {\frac{d(pV)}{dt}} = Fp - Fp = 0
 $$
+
 para uma biorreator:
 
 - Taxa de biomassa entrando do reator = Fxf
