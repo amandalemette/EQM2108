@@ -8,7 +8,7 @@ O presente trabalho teve como objetivo a Simulação de um biorreator em batelad
 Esse reator visa a produção de etanol a partir de glicose por meio da levedura Sacaromices Cerevisiae. A partir da discussão do próprio autor, é proposto simular em batelada e em semi-batelada a partir do equacionamento proposto pelo livro.
 
 
-#Introdução
+# Introdução
 
 A simulação de um bioreator em semi batelada é uma ferramenta valiosa no campo da engenharia bioquímica e biotecnologia. Essa abordagem envolve a operação do bioreator em um modo misto, combinando características da operação em batelada e contínua.
 
@@ -157,11 +157,11 @@ $$
 $$
 
 
-#Resultados e Discussão
+# Resultados e Discussão
 
 Para o reator em batelada, observa-se que a reação estabiliza muito rápido em um reator batelada. Dessa forma, o livro sugere que seja em pregado um reator semi-batelada para aumentar a eficiência do processo.
 
-#Conclusão
+# Conclusão
 
 POr fim, a simulação de bioreatores nos diferentes modos de operação, como Contínuo em Estado Estacionário (CSTB), Batelada e Semibatelada, desempenha um papel fundamental no desenvolvimento e otimização de processos biotecnológicos.
 
