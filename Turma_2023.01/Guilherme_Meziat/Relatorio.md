@@ -1,19 +1,7 @@
-<style>
-img
-{
-    display:block;
-    float:none;
-    margin-left:auto;
-    margin-right:auto;
-    width:60%;
-}
-</style>
-
-
 # Separação de Frações Derivadas do Petróleo por Destilação em Batelada: um Estudo de Caso
 
-A destilação é um processo que pode ser feito de diversas formas, explorando uma propriedade das substâncias a serem separadas: o coeficiente de partição.
-Esse coeficiente depende majoritariamente da pressão de vapor (ou de saturação) de cada substância e das suas atividades químicas na temperatura de ebulição.
+A destilação é um processo que pode ser feito de diversas formas, explorando uma propriedade das substâncias a serem separadas: a volatilidade.
+Ela depende majoritariamente da pressão de vapor (ou de saturação) de cada substância e das suas atividades químicas na temperatura de ebulição.
 Nesse caso, o processo será realizado através de uma coluna de destilação fracionada, conforme esquema apresentado abaixo:
 
 ![image](https://github.com/amandalemette/EQM2108/assets/11985514/611bdd51-9f36-4020-ae57-ca61c46cb36c)
@@ -21,7 +9,7 @@ Nesse caso, o processo será realizado através de uma coluna de destilação fr
 A ordenação de pratos dentro dessa figura será a ordem utilizada ao longo do relatório.
 
 Esse tipo de coluna é utilizado para destilações mais complexas, como a separação de misturas com vários componentes ou com coeficientes de partição muito próximas (ou ambos).
-É notável nesse esquema a falta de uma corrente de alimentação para a coluna, o que se deve ao fato do processo de destilação realizado ser em batelada.
+É notável nesse esquema a falta de uma corrente de alimentação para a coluna, o que se deve ao fato do processo de destilação realizado na simulação deste estudo ser em batelada.
 Em colunas como essa, uma carga é inicialmente alimentada na coluna antes do começo de sua operação.
 Em seguida, espera-se até que a pureza da substância de interesse mais leve chegue ao nível-objetivo que se inicie a produção.
 
@@ -30,7 +18,7 @@ Nessa situação, a produção é interrompida e encerrada para a batelada em qu
 
 Durante o corte intermediário, o componente mais leve termina de se esgotar e, então, o segundo componente mais leve adquire boa pureza no topo da coluna.
 Porém, caso não seja esse o segundo componente de interesse, basta continuar o corte até que esse componente também se esgote e o equilíbrio na fase vapor favoreça o terceiro componente mais leve no topo.
-Caso o componente de interesse seja algum outro mais pesado, basta esperar o esgotamento do terceiro componente mais leve e assim por diante.
+Caso o componente de interesse seja algum outro mais pesado, será necessário esperar o esgotamento do terceiro e do restante dos componentes mais leves.
 Geralmente, o tanque secundário que recebe as faixas intermediárias da destilação é um tanque de reciclo para a próxima batelada.
 
 Colunas de destilação em batelada ganharam popularidade pela sua capacidade de produzir substâncias de alta pureza, uma necessidade dos dias de hoje.
@@ -48,10 +36,10 @@ Assim, a visualização dos balanços de massa e de energia se torna um pouco ma
 O equacionamento dessa coluna será feito levando em consideração algumas suposições, das quais as principais são:
 1. Não há acúmulo explícito de calor em nenhum dos estágios de equilíbrio da coluna; as entalpias serão calculadas algébricamente a cada iteração
     1. Isso implica que todo o calor inserido na coluna pelo reboiler será utilizado apenas para evaporar a fase líquida presente, o que é razoável pois, na prática, a temperatura de ebulição no reboiler não varia muito e nem muito rapidamente.
-2. Toda a fase de vapor que sobe do prato n ao prato n+1 condensa e transfere toda o seu calor para o líquido, evaporando-o.
+2. Toda a fase de vapor que sobe do prato n ao prato n+1 condensa e transfere o seu calor para o líquido, evaporando-o.
     1. Essa suposição foi feita de tal forma que o ponto de orvalho não seja relevante na realização do equilíbrio líquido-vapor de cada prato, já que todo o vapor condensa. Na prática, sabe-se que isso não acontece, mas a aproximação é válida.
 3. Os equilíbrios vapor-líquido entre cada prato foram considerados teóricos nessa simulação.
-    1. A eficiência de Murphree ($\nu$) esse termo pode ser utilizado para demonstrar que as interações vapor-líquido em cada prato não chegam ao equilíbrio vapor-líquido teórico calculado, refletindo o que acontece com o processo na prática. A desconsideração desse termo ($\nu = 1$) afeta principalmente a velocidade de resolução da destilação, acelerando-a mais do que realisticamente possível (e.g. a estabilidade é alcançada mais rapidamente, os níveis de pureza permanecem por mais tempo, a produção aumenta).
+    1. A eficiência de Murphree ($\eta$) esse termo pode ser utilizado para demonstrar que as interações vapor-líquido em cada prato não chegam ao equilíbrio vapor-líquido teórico calculado, refletindo o que acontece com o processo na prática. A desconsideração desse termo ($\eta = 1$) afeta principalmente a velocidade de resolução da destilação, acelerando-a mais do que realisticamente possível (e.g. a estabilidade é alcançada mais rapidamente, os níveis de pureza permanecem por mais tempo, a produção aumenta).
 4. O nível do tanque condensador é mantido constante.
     1. Isso significa que a vazão de refluxo $R$ irá variar com o tempo, de acordo com a vazão de destilado $D$ e de vapor do prato de topo $V_{n_T}$ o que tem diversas implicações nos equilíbrios dentro da coluna.
 5. As composições iniciais de todos os pratos, do reboiler e do condensador são identicas e iguais à composição de alimentação da coluna.
@@ -67,13 +55,13 @@ Assim como em qualquer outro balanço molar, a fórmula geral é:
 Uma boa forma de entender o balanço molar dentro da coluna de destilação é, primeiramente, visualizar dois valores em cada prato para a entrada ao invés de um só, onde o primeiro valor diz respeito ao líquido que cai do prato acima e o segundo ao vapor que sobe do prato abaixo.
 O mesmo pode ser feito para a saída, com dois valores existentes, um dizendo respeito ao líquido que cai do prato atual para o prato abaixo e outro, à quantidade evaporada do prato atual, que segue para o prato acima. 
 
-### $$({Acúmulo prato}) = [({Entrada\space liq}) + ({Entrada\space vap})] - [({Saida\space liq}) + ({Saida\space vap})]$$
+### $$({Acúmulo\space prato}) = [({Entrada\space liq}) + ({Entrada\space vap})] - [({Saida\space liq}) + ({Saida\space vap})]$$
 
 Em termos mais específicos e se utilizando da ordenação de pratos do esquema mostrado:
 
 ### $$\frac{dm_n}{dt} = \dot{m}\_n = L_{n+1} + V_{n-1} - L_n - V_n$$
 
-Os pratos da coluna são também chamados de estágios de equilíbrio, pois é neles que as interações vapor-líquido acontecem, possibilitando a purificação através da exploração do coeficiente de partição. 
+Os pratos da coluna são também chamados de estágios de equilíbrio, pois é neles que as interações vapor-líquido acontecem, possibilitando a purificação através da exploração do seu coeficiente de partição. 
 Para os pratos do topo e do fundo, antes do reboiler e do condensador, alguns termos mudam devido à nomenclatura utilizada, como se pode ver no esquema apresentado:
 
 * Para o prato do fundo ($n = 1$): $V_{n-1} = V_B$
@@ -113,6 +101,7 @@ Já as vazões líquidas podem ser definidas a partir de uma fórmula empírica 
 * $DCOL$ = diâmetro da coluna em polegadas
 * $DENSA_n = \sum_{i=1} \rho_{i}\cdot x_{n,i}$ = densidade média do líquido no prato em $\frac{lb}{ft^3}$
 * $MWA_n = \sum_{i=1} MM_{i}\cdot x_{n,i}$ = massa molar média do líquido no prato em unidades de massa atômica
+* $m_n$ deve ser expresso em lbmol
 
 ### $$L_n = \frac{DENSA_n\cdot W_L\cdot 999\cdot\left(\frac{183.2\cdot m_n\cdot MWA_n}{DENSA_n\cdot DCOL^2}\right)^{1.5}}{MWA_n}$$
 A fórmula acima pode ser utilizada também para o cálculo da vazão de refluxo, R.
@@ -125,7 +114,7 @@ A partir da suposição 2, considera-se que esse balanço é feito puramente na 
 
 * Para os pratos intermediários:
   
-### $$\frac{dm_n,i}{dt} = \dot{m}\_{n,i} = L_{n+1} x_{n+1,i} + V_{n-1} y_{n-1,i} - L_n x_{n,i} - V_n y_{n,i}$$
+### $$\frac{dm_{n,i}}{dt} = \dot{m}\_{n,i} = L_{n+1} x_{n+1,i} + V_{n-1} y_{n-1,i} - L_n x_{n,i} - V_n y_{n,i}$$
  
 * * Para o prato do fundo ($n = 1$): $y_{n-1,i} = y_{B,i}$
 
@@ -159,7 +148,7 @@ Considerando que o vapor se comporta como um gás ideal com pressão de saturaç
 
 Onde:
 
-### $$lnP^{Sat}_i = A_i - \frac{B_i}{T+C_i}
+### $$lnP^{Sat}_i = A_i - \frac{B_i}{T+C_i}$$
 ### $$ln\gamma_i = \frac{v_i\cdot(\delta_i - \bar{\delta})^2}{RT}\space ;\quad \bar{\delta} = \frac{\sum_{i=1} x_iv_i\delta_i}{\sum_{i=1} x_iv_i} $$
 
 Nas equações acima, $A_i$, $B_i$ e $C_i$ são os parâmetros de antoine, $v_i$ é o volume molar e $\delta_i$ é a solubilidade do componente i. R é a constante dos gases ideais.
@@ -169,21 +158,21 @@ Assim, os seguintes passos devem ser seguidos:
 1. Chutar uma temperatura de bolha inicial
 2. Calcular o coeficiente de atividade de cada componente através do modelo de Hildebrand
 3. Calcular as pressões de saturação de cada componente
-4. Calcular e minimizar a variação entre a soma das pressões de saturação e a pressão total, $(\sum P^Sat_i) - P_t$
+4. Calcular e minimizar a variação entre a soma das pressões de saturação e a pressão total, $(\sum P^{Sat`}_i) - P_t$
     1. Se essa variação der próxima o bastante de zero (conforme tolerância adotada arbitrariamente), encerrar processo
-    2. Caso contrário, passar para a próxima iteração com novo T, definido a partir de $(\sum P^Sat_i) - P_t$ (foi utilizada a função fsolve da biblioteca scipy.optimize)
+    2. Caso contrário, passar para a próxima iteração com novo T, definido a partir de $(\sum P^{Sat}_i) - P_t$ (foi utilizada a função fsolve da biblioteca scipy.optimize)
 
 Finalizado esse processo, é possível calcular $y_i$ a partir da fórmula anteriormente demonstrada.
 Assim, obtêm-se a temperatura e composição de bolha do líquido analisado, lembrando que esse é o cálculo para apenas um dos pratos.
 
 ### Balanço energético (ou entálpico)
 
-Para o balanço energético, as quantidades de líquido e vapor trocadas entre os pratos devem ser multiplicados pela entalpia molar de cada fase($H^V$ para a fase vapor e $H^l$ para a fase líquida), de forma que o resultado é o calor total de saída e entrada em cada prato.
+Para o balanço energético, as quantidades de líquido e vapor trocadas entre os pratos devem ser multiplicados pela entalpia molar de cada fase($H^V$ para a fase vapor e $H^L$ para a fase líquida), de forma que o resultado é o calor total de saída e entrada em cada prato.
 Relembrando da suposição 1 feita para o equacionamento da coluna, é mais conveniente iniciar esse balanço falando do reboiler:
 
 * Para o reboiler: nesse balanço, demonstra-se que é possível calcular a saída de vapor do reboiler
 
-##### $$\dot{m}\_B = Q_R + L_1H^L_{1} - V_BH^V_{B} = 0$$
+##### $$\dot{H}\_B = Q_R + L_1H^L_{1} - V_BH^V_{B} = 0$$
 ##### $$Q_R + L_1H^L_{1} = V_BH^V_{B}$$
 ### $$V_B = \frac{Q_R + L_1H^L_{1}}{H^V_{B}}$$
  
@@ -222,18 +211,20 @@ As entalpias molares de cada fase em cada prato podem ser calculadas através da
 
 ### $$H^L_n = \sum_{i=1} H^L_{i}\cdot x_{n,i}\quad //\quad H^V_n = \sum_{i=1} H^V_{i}\cdot y_{n,i}$$
 
-Nessa simulação, o cálculo de $H^v_i$ é feito inicialmente, a partir da temperatura de bolha encontrada na resolução do equilíbrio vapor-líquido:
+Nessa simulação, o cálculo de $H^V_i$ é feito inicialmente, a partir da temperatura de bolha encontrada na resolução do equilíbrio vapor-líquido:
 
-### $$H^v_i = \int_{T_0}^{T}c_{p,i}dT$$
+### $$H^V_i = \int_{T_0}^{T}c_{p,i}dT$$
 
 Onde $c_p$ é uma aproximação cúbica:
 
-### $$c_{p,i} = a_1 + a_2T + a_3T^2 + a_4T^4$$
+### $$c_{p,i} = a_1 + a_2T + a_3T^2 + a_4T^3$$
 
 Nessa fórmula, $T_0$ é considerada como sendo igual a zero.
 
-Uma forma de relacionar as entalpias da fase vapor com a fase líquida é através do calor latente de vaporização, que pode ser expressado com base na pressão de saturação de antoine:
-### $$\lambda = RT^2 \frac{B_i}{(T+C_i)^2} \longrightarrow H^L_i = H^V_i - \lambda$$
+Uma forma de relacionar as entalpias da fase vapor com a fase líquida é através do calor latente de vaporização, que pode ser derivada da equação de Clausius-Clapeyron para a evaporação e expressado com base na pressão de saturação de antoine:
+##### $$\frac{dP^{Sat}\_i}{dT} = \frac{B_i}{(T+C_i)^2} = \frac{\Delta H_{vap}}{V_{vap}T}\qquad \Delta H_{vap} = \lambda_i\quad V_{vap}=\frac{RT}{P}$$
+### $$\frac{B_i}{(T+C_i)^2}  = \frac{\lambda_i}{RT^2}\qquad \lambda_i = RT^2 \frac{B_i}{(T+C_i)^2}$$
+### $$H^L_i = H^V_i - \lambda_i$$
 
 ## O problema em questão
 
@@ -242,13 +233,21 @@ O problema atual a ser estudado é a separação de uma mistura ternária de fra
 Algumas informações dessa mistura seguem abaixo:
 
 $F = 30000\space mol$
+
 $z_i = [0.4;0.4;0.2]$
+
 $m_n = 30\space mol\qquad(m_{n,i} = [12, 12, 6]$
+
 $m_D = 1000\space mol\qquad(m_B = m_n\cdot n_t - m_D)$ 
+
 $Q_R = 200\space kcal\space min^{-1}$
+
 $D_{max} = 1.8\space mol\space min^{-1}$ (apenas após o começo da produção)
+
 $x_{1,min} = 0.97$
+
 $DCOL = 0.75\space m$
+
 $P_op = 1\space atm$
 
 ### Passo-a-passo
@@ -329,10 +328,10 @@ Uma clara limitação dessa simulação é a falta de controle na taxa de aqueci
 Além disso, a variável D, apesar de não ser definida como um valor constantea, tmbém possui um controle que deixa a desejar.
 Em trabalhos futuros, seria interessante aplicar um sistema geral de controle a essa coluna, o que provavelmente daria muito mais liberdade na simulação dessa destilação, além de aproximá-la mais da realidade.
 
-Nessa lista de afazeres, pode-se mencionar também a aplicação de $\nu$ nos pratos, de forma a fazer a simulação trabalhar com estágios de equilíbrio reais.
-Os efeitos da adição de $\nu$ seriam notáveis em relação aos tempos observados e, de certa forma, à produção e pureza alcançada de ciclohexano.
+Nessa lista de afazeres, pode-se mencionar também a aplicação de $\eta$ nos pratos, de forma a fazer a simulação trabalhar com estágios de equilíbrio reais.
+Os efeitos da adição de $\eta$ seriam notáveis em relação aos tempos observados e, de certa forma, à produção e pureza alcançada de ciclohexano.
 Além disso, a simulação feita nesse estudo foi parcial.
-O próximo objetivo seria ajustar os parâmetros da coluna (principalmente, $D$, $Q_R$ e $t$) para realizar uma simulação total, com os valores de produção e pureza dos três componentes.
+O próximo objetivo seria ajustar os parâmetros da coluna (principalmente, $D$, $Q_R$, $t$ e $\eta$) para realizar uma simulação total, com os valores de produção e pureza dos três componentes.
 
 ## Referência
 
