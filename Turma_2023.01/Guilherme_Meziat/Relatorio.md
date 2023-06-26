@@ -306,7 +306,34 @@ Do código executado, diversas informações puderam ser extraídas, como a quan
 
 ![image](https://github.com/amandalemette/EQM2108/assets/11985514/7a734f6d-b2de-495d-af3c-44eb2e79d81e)
 
+É possível apontar nos gráficos os momentos onde o ciclo de produção começa e se encerra na coluna de destilação.
+No começo do ciclo, perto de t = 400 min, D deixa de ser 0, o que leva a um degrau nas composições e quantidade de matéria em cada prato.
+Após o final do ciclo, o código implementa uma função que aumenta D ligeiramente, de forma a acelerar o processo de corte intermediário entre o ciclohexano e o heptano. 
+A medida que teve sucesso parcial; a composição do heptano subiu mais rapidamente, porém mesmo alguns dias após o começo do corte, a pureza do heptano alcançou apenas 80%.
+Visto que a composição máxima de heptano visivelmente não foi atingida, um valor maior de D poderia tornar a realização desse corte mais veloz, porém sempre levando em consideração a quantidade de matéria presente nos pratos.
+Ela também é fortemente afetada pela corrente D, logo deve-se tomar cuidado para não usar um valor muito alto e esgotar o líquido presente nos pratos.
 
+Algo interessante a se notar é a inversão no gradiente de concentração do heptano ao longo da coluna.
+Enquanto a curva da sua fração nos pratos iniciais muda de inclinação e começa a cair, nos pratos mais próximos do condensador há um aumento vertiginoso, que não se saturou até o final da simulação.
+Esse é o efeito do esgotamento do ciclohexano, o componente mais leve, a níveis onde o equilíbrio vapor-líquido passa a oferecer uma composição de bolha mais concentrada em heptano.
+Para o caso do tolueno, por ser o componente mais pesado, essa inversão ainda não aconteceu, apesar de haver uma clara mudança em sua composição ao longo da coluna após o corte intermediário.
+Para tal, o heptano deve se esgotar da mesma forma, para que a composição de bolha favoreca uma concentração maior de tolueno.
+Porém, uma alternativa a esse método seria simplesmente retirar o tolueno a partir de uma corrente de saída do reboiler, que estaria quase completamente puro a essa altura da simulação.
 
+Nos gráficos de matéria total presente na coluna e no condensador, pode-se fazer um paralelo entre a velocidade de queda da matéria total presente de um componente e a sua fração molar dentro do condensador.
+Isso é visível na dinâmica entre o ciclohexano e o heptano, nos momentos finais da simulação.
+Ao mesmo tempo em que o heptano ultrapassa-o em concentração no condensador, o seu número total de mols na coluna também passa a decair mais rapidamente, visto que a saída é pelo condensador.
+Curiosamente, esse momento também coincide com o momento onde a fração de heptano dentro do reboiler para de subir e começa a cair (ou seja, o momento onde o equilíbrio no reboiler começa a favorecer a evaporação do heptano).
 
+Uma clara limitação dessa simulação é a falta de controle na taxa de aquecimento do reboiler. Ela se mantém fixa, não importando a temperatura de ebulição, as correntes ao longo dos pratos e nem a pureza dos componentes de interesee.
+Além disso, a variável D, apesar de não ser definida como um valor constantea, tmbém possui um controle que deixa a desejar.
+Em trabalhos futuros, seria interessante aplicar um sistema geral de controle a essa coluna, o que provavelmente daria muito mais liberdade na simulação dessa destilação, além de aproximá-la mais da realidade.
 
+Nessa lista de afazeres, pode-se mencionar também a aplicação de $\nu$ nos pratos, de forma a fazer a simulação trabalhar com estágios de equilíbrio reais.
+Os efeitos da adição de $\nu$ seriam notáveis em relação aos tempos observados e, de certa forma, à produção e pureza alcançada de ciclohexano.
+Além disso, a simulação feita nesse estudo foi parcial.
+O próximo objetivo seria ajustar os parâmetros da coluna (principalmente, $D$, $Q_R$ e $t$) para realizar uma simulação total, com os valores de produção e pureza dos três componentes.
+
+## Referência
+
+Jana, A. K. Chemical Process Modelling and Computer Simulation 2nd Edition, Chemical Process Modelling, Department of Chemical Engineering Indian Institute of Technology Kharagpur and Computer Simulation, 2011.
