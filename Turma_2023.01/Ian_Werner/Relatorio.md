@@ -59,6 +59,7 @@ sendo r1 a taxa de geração de células
 $$
 {\frac{d(x)}{dt}} = {\frac{F}{V}}x_f - {\frac{F}{V}}x + r_1
 $$
+
 a razão F/V pode ser descrita como tempo espacial do reator D. No entanto, no ramo da engenharia bioquímica, F/V é referido como taxa de diluiçao, provavelmente relacionado a diluição da biomassa no biorreator. Ficando assim:
 
 $$
@@ -82,7 +83,9 @@ Sabe-se que a taxa de crescimento de bactérias depende do meio que elas estão.
 $$
 r_1 = \mu x
 $$
+
 Com rendimento constante: 
+
 $$
 Y = {\frac{r_1}{r_2}} = {\frac{massa\ de\ células\ formadas}{massa\ de\ substrato\ consumido}} 
 $$
@@ -92,6 +95,7 @@ assim a relação entre taxas é:
 $$
 r_2 = {\frac{r_1}{Y}}
 $$
+
 Substituindo no balanço de massa:
 
 $$
@@ -160,6 +164,121 @@ $$
 
 
 # Resultados e Discussão
+Reator CSTB
+
+#reator CSTR
+um = 0.53 #h^-1
+Km = 0.12 # g/l
+D = 0.3 #h^-1
+Sf = 4.0 #g/l
+Y = 0.4
+
+#definindo mu em funça~ode outras variaveis
+def mu1 (S):
+  return um*S/(Km+S)
+#definindo as EDOs
+def bat(x,t):
+  X,S,P = x
+  dX = X*(mu1(S)-D)
+  dS = D*(Sf-S)-(mu1(S)*X/Y)
+  dP = -dS
+  return [dX,dS,dP]
+IC1 = [0.2, 100.0, 0]
+
+t = np.linspace(0,30, 6000)
+sol = odeint(bat,IC1,t)
+X,S,P = sol.transpose()
+
+plt.plot(t,X)
+plt.plot(t,S)
+plt.plot(t,P)
+
+
+plt.xlabel('Tempo [hr]')
+plt.ylabel('Concentração [g/l]')
+plt.legend(['Conc. Celulas',
+            'Conc. glicose',
+            'Conc. etanol'])
+
+            ![image](https://github.com/amandalemette/EQM2108/assets/134962283/84451323-d2d7-4760-85c5-675c005491a4)
+
+#Condições iniciais batelada e semi batelada
+x0 = 0.2 #concentração inicial de biomassa (g/l)
+S0 = 100 #concentração inicial de glicose (g/l)
+P0 = 0 #concentração inicial de etanol (g/l)
+V0 = 1 #Volume inicial (l)
+tf = 20 # tempo de integração (h^-1)
+F = 1 #(h^-1)
+intt = 0.004 #(h)
+
+#entrada de volume
+def F(t):
+  return 1
+#Taxas de reação
+def mu (S,P):
+  return 0.408*S*math.exp(-0.028*P)/(0.22+S)
+def Rs(S,P):
+  return mu(S,P)/0.1
+def Rp(S,P):
+  return  S*math.exp(-0.015*P)/(0.44+S)
+
+  #definindo o sistema de equações batelada
+def EDObat(x,t):
+  X,P,S = x
+  dX = mu(S,P)*X 
+  dP = Rp(S,P)*X
+  dS = - Rs(S,P)*X
+  
+  return [dX,dP,dS]
+  IC = [x0, P0, S0]
+
+t = np.linspace(0,30, 7500)
+sol = odeint(EDObat,IC,t)
+X,P,S = sol.transpose()
+
+plt.plot(t,X)
+plt.plot(t,P)
+plt.plot(t,S)
+
+
+plt.xlabel('Tempo [hr]')
+plt.ylabel('Concentração [g/l]')
+plt.legend(['Conc. Celulas',
+            'Conc. etanol',
+            'Conc. glicose',
+            ])
+
+            ![image](https://github.com/amandalemette/EQM2108/assets/134962283/d4663aaf-a553-458a-8e3c-241315e0baab)
+
+            #definindo o sistema de equações semi batelada
+def EDO(x,t):
+  X,P,S,V = x
+  dX = mu(S,P)*X - F(t)*X/V
+  dP = -F(t)*P/V + Rp(S,P)*X
+  dS = F(t)*(S0-S)/V - Rs(S,P)*X
+  dV = F(t)
+  return [dX,dP,dS,dV]
+
+  IC = [x0, P0, S0, V0]
+
+t = np.linspace(0,30, 7500)
+sol = odeint(EDO,IC,t)
+X,P,S,V = sol.transpose()
+
+plt.plot(t,X)
+plt.plot(t,P)
+plt.plot(t,S)
+plt.plot(t,V)
+
+plt.xlabel('Tempo [hr]')
+plt.ylabel('Concentração [g/l]')
+plt.legend(['Conc. Celulas',
+            'Conc. etanol',
+            'Conc. glicose',
+            'Volume [l]'])
+
+            ![image](https://github.com/amandalemette/EQM2108/assets/134962283/d3dd2305-4e85-45dc-9768-3a7eaa9ce709)
+
 
 Para o reator em batelada, observa-se que a reação estabiliza muito rápido em um reator batelada. Dessa forma, o livro sugere que seja em pregado um reator semi-batelada para aumentar a eficiência do processo.
 
