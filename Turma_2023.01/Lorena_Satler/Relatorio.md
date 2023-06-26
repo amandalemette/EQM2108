@@ -30,7 +30,7 @@ O trocador de calor de tubo duplo é o tipo mais simples de trocador de calor e 
 
 O modelo apresentado aplica equações diferenciais ordinárias (ODEs) para descrever o processo e fornecer os gráficos das temperaturas de saída versus tempo. 
 
-O tubo foi dividido em três segmentos diferenciais (Δz). Para cada unidade de Δz, e cada fluido naquela unidade do trocador de calor, é necessária uma equação de aproximação. 
+O trocador de calor foi dividido em três segmentos diferenciais (Δz), em vez de tomar a derivada parcial ao longo do comprimento em relação à temperatura. Para cada unidade de Δz, e cada fluido naquela unidade do trocador de calor, foi necessária uma equação de aproximação. 
 
 ### 3.1. Balanço Energético - Modelagem com EDO's
 
