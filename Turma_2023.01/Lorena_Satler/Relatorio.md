@@ -119,7 +119,7 @@ $$ℎ𝐴(𝑇𝑠−𝑇∞)=0$$
 
 * Hipótese 5: Em vez de tomar a derivada parcial ao longo do comprimento em relação à temperatura, o tubo foi dividido em segmentos diferenciais, Δz.  Idealmente, Δz é uma seção transversal infinitamente pequena do comprimento do trocador de calor, logo, podemos tomar a temperatura em Δz como sendo a temperatura de saída das correntes quente e fria para os Δ𝑧's, respectivamente.
 
-* Hipótese 6: Assumir que através deste segmento diferencial (Δz), a temperatura do líquido que sai do segmento é a mesma que a temperatura do líquido dentro do segmento. Como estamos assumindo a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão da solução.
+* Hipótese 6: Assumir que através deste segmento diferencial (Δz), a temperatura do líquido que sai do segmento é a mesma que a temperatura do líquido dentro do segmento. 
 
 A figura abaixo mostra um exemplo de simplificação onde o trocador de calor é dividido em três segmentos:
 
@@ -173,9 +173,11 @@ $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
 De acordo com gráfico gerado, é possível observar que a troca térmica acontece muito rapidamente, em t<0.0001s. 
 
-O perfil de temperatura de saída do fluido de resfriamento do lado do casco converge de para um valor mais distante da temperatura inicial de entrada (T0s = 250K), pois possui menos massa por unidade de volume, entrando no estado estacionário em t=0.0001s com a temperatura de saída igual a 313K.
+O perfil de temperatura de saída do fluido de resfriamento do lado do casco converge de para um valor mais distante da temperatura inicial de entrada (T0s = 250K), porque possui menos massa por unidade de volume e menor vazão volumétrica, entrando no estado estacionário em t=0.0001s com a temperatura de saída igual a 313K.
 
-Já o perfil de temperatura do fluido de interesse do lado do tubo tem a variação mais devagar e amena, entrando no estado estacionário em t=0.004s com a temperatura de saída igual a 280K. 
+Já o perfil de temperatura do fluido de interesse do lado do tubo teve a variação mais amena, entrando no estado estacionário em t=0.004s com a temperatura de saída igual a 280K. 
+
+Como foi assuminda a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão desse modelo.
 
 ![Captura de Tela 2023-06-26 às 10 53 05](https://github.com/amandalemette/EQM2108/assets/135286174/fad3fba2-b177-4586-8f00-d4e15191c82d)
 
