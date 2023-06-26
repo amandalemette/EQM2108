@@ -127,7 +127,9 @@ A figura abaixo mostra um exemplo de simplificação onde o trocador de calor é
 
 ### 5. Estudo de caso
 
-Resfriar um fluido a 330 K em um trocador de calor de tubo duplo em contracorrente com água fria entrando a 250 K como fluido refrigerante.
+Resfriar rápida e eficientemente um fluido a 330 K em um trocador de calor de tubo duplo em contracorrente com água fria entrando a 250 K como fluido refrigerante. 
+
+Criar um modelo para determinar quando esse processo entrará em equilírio. 
 
 *Dados:*
 
