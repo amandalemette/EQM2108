@@ -179,8 +179,9 @@ Considerando o problema proposto, o perfil de temperatura de saída do fluido de
 ![Captura de Tela 2023-06-26 às 10 53 05](https://github.com/amandalemette/EQM2108/assets/135286174/fad3fba2-b177-4586-8f00-d4e15191c82d)
 Figura 4: Perfis de Temperatura no Casco e no Tubo Ft = 0.2m3/s, Fs = 0.1m3/s
 
-Fazendo uma análise mais cuidadosa em relação à variação das vazões volumétricas do processo, ao fixarmos a vazão no tubo de acordo com a fornecida no problema, Ft = 0.2 m3/s, e aumentarmos a vazão do lado do casco para Fs = 0,5 m3/s, a temperatura de saída do lado do casco (Ts_out) diminui, fazendo com que as temperaturas saída no casco e no tubo entrem em estado estacionário quando Ts_out = Tt_out = 261K. Por outro lado, se diminuirmos a a vazão do lado do casco para Fs = 0,05 m3/s, Ts_out aumenta muito e extrapolando a temperatura de entrada do fluido quente. Se fixarmos a vazão do lado do casco fornecida no probelma proposto (Fs = 0.1 m3/s) e diminuirmos a vazão do lado do tubo pra Ft = 0,1 m3/s, ocorre troca térmica satisfatória, onde Ts_out = 303 K e Tt_out = 264 K. Contudo, se aumentarmos Ft = 1,0 m3/s, a troca térmica não é 
-Ft = 1,0, não ocorre troca térmica efetiva, pois o fluido quente perde pouco calor e sai com Tt_out = 314K.
+Fazendo uma análise mais cuidadosa em relação à variação das vazões volumétricas do processo, ao fixarmos a vazão no tubo de acordo com a fornecida no problema, Ft = 0.2 m3/s, e aumentarmos a vazão do lado do casco para Fs = 0,5 m3/s, a temperatura de saída do lado do casco (Ts_out) diminui, até que as temperaturas saída no casco e no tubo entrem em estado estacionário quando Ts_out = Tt_out = 261K. Por outro lado, se diminuirmos a a vazão do lado do casco para Fs = 0,05 m3/s, Ts_out aumenta muito e extrapolando a temperatura de entrada do fluido quente. Se fixarmos a vazão do lado do casco fornecida no problema proposto (Fs = 0.1 m3/s) e diminuirmos a vazão do lado do tubo pra Ft = 0,1 m3/s, ocorre troca térmica satisfatória, onde Ts_out = 303 K e Tt_out = 264 K. Contudo, se aumentarmos Ft = 1,0 m3/s, não ocorre troca térmica efetiva, pois o fluido quente perde pouco calor e sai com Tt_out = 314K.
+
+A variação na constante de troca térmica também afeta diretamente as temperaturas de saída dos fluidos, a redução do valor da constante k diminui a eficiencia da troca de calor, já o aumento dessa constante não significa a melhora na eficiencia, pois existe um limite máximo aceitável do valor de k, para o caso do problema proposto k<550000 #W/mˆ2k. 
 
 Ademais, como foi assuminda a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão desse modelo. 
 
@@ -188,11 +189,12 @@ Ademais, como foi assuminda a mesma temperatura para os fluxos de saída e para 
 
 Como os trocadores de calor têm uma grande variedade de aplicações, especialmente em processos químicos, ar condicionado e refrigeração, o controle do sistema é essencial para a otimização e a realização de previsões dos processos. 
 
-O modelo proposto cumpre o objetivo do trabalho e tem sentido físico, uma vez que é capaz de resfriar o fluido de interese (T0t = 330 K e Tt_out = 280K), entretanto, se aplica para o comprimento do trocador de Δz = 1 e o número de divisões N = 3. Além disso, foi observado que a variação das vazões volumétricas de processo afetam diretamente a eficiencia da troca térmica e devem ser escolhidas de acordo com as temperaturas de saída de interesse. 
-
 A modelagem dinâmica de um trocador de calor de tubo duplo permite que os engenheiros prevejam, por exemplo, como as alterações das variáveis do processo podem afetar as propriedades dos fluidos de saída e determinar quando o sistema entrará em estado estacionário.
 
 Existem considerações e simplificações apropriadas para diminuir o número de EDO's e resolver os balanços diferenciais de energia, devido ao número notável de variáveis independentes a serem contabilizadas em um modelo de um trocador de calor, no entanto, a validade dessas suposições depende da precisão do modelo desejado.
+
+O modelo proposto cumpriu o objetivo do trabalho e tem sentido físico, uma vez que é capaz de resfriar o fluido de interese (T0t = 330 K e Tt_out = 280K), entretanto, se aplica para o comprimento do trocador de Δz = 1 e o número de divisões N = 3. Além disso, foi observado que a variação das vazões volumétricas de processo e da constante de troca térmica afetam diretamente a eficiencia da troca de calor e devem ser escolhidas de acordo com as temperaturas de saída de desejadas. 
+
 
 ### 8. Referências
 
