@@ -181,6 +181,21 @@ Como foi assuminda a mesma temperatura para os fluxos de saída e para o interio
 
 ![Captura de Tela 2023-06-26 às 10 53 05](https://github.com/amandalemette/EQM2108/assets/135286174/fad3fba2-b177-4586-8f00-d4e15191c82d)
 
+Fs = 0,5 Ts_out = Tt_out
+Ts_out diminui
+![Captura de Tela 2023-06-30 às 16 07 37](https://github.com/amandalemette/EQM2108/assets/135286174/e83c54c7-0d41-4532-85ca-e3a5f90dd250)
+
+Fs = 0,05 
+Ts_out aumenta muito e extrapola
+
+![Captura de Tela 2023-06-30 às 16 18 02](https://github.com/amandalemette/EQM2108/assets/135286174/04e10c5c-61a3-426b-9a2f-021e64a2327a)
+
+Ft = 0,1 
+Ts_out = 303 K 
+Tt_out = 264 K 
+Ocorre boa troca térmica 
+![Captura de Tela 2023-06-30 às 16 16 27](https://github.com/amandalemette/EQM2108/assets/135286174/b7bd1730-ccdc-4152-9f5c-681c3a30eaa1)
+
 
 ### 7. Conclusões
 
