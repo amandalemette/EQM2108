@@ -24,7 +24,7 @@ O trocador de calor de tubo duplo é o tipo mais simples de trocador de calor e 
 
 * Um trocador de calor em contracorrente permite uma transferência de energia mais eficiente.
 
-![Captura de Tela 2023-06-25 às 17 55 00](https://github.com/amandalemette/EQM2108/assets/135286174/127ea6b1-c16b-4e11-bd58-18abb4aad3fc)
+![Captura de Tela 2023-06-25 às 17 55 00](https://github.com/amandalemette/EQM2108/assets/135286174/127ea6b1-c16b-4e11-bd58-18abb4aad3fc) 
 
 ### 3. Metodologia 
 
@@ -47,7 +47,7 @@ O balanço de energia do lado do tubo pode ser descrito como:
 
 $$
 mc_{p,t}\frac{dT_{t,out}}{dt} = \rho c_{p,t} F_{t,in} T_{t,in} - \rho c_{p,t} F_{t,out} T_{t,out} - \frac{kA_i}{\Delta z} (T_{t,out} - T_{s,out})
-$$
+$$ 
 
 ### 3.1.2. Balanço de Energia do Fluido do Lado do Casco.
 
@@ -121,9 +121,10 @@ $$ℎ𝐴(𝑇𝑠−𝑇∞)=0$$
 
 * Hipótese 6: Assumir que através deste segmento diferencial (Δz), a temperatura do líquido que sai do segmento é a mesma que a temperatura do líquido dentro do segmento. 
 
-A figura abaixo mostra um exemplo de simplificação onde o trocador de calor é dividido em três segmentos:
+A Figura 3 abaixo mostra um exemplo de simplificação onde o trocador de calor é dividido em três segmentos:
 
 ![Captura de Tela 2023-06-25 às 17 59 06](https://github.com/amandalemette/EQM2108/assets/135286174/d6ee24d1-1a71-4917-9a77-ceb457dd35a7)
+Figura 3: Trocador de calor dividido em três segmentos diferenciais (Δz)
 
 ### 5. Estudo de caso
 
@@ -155,7 +156,7 @@ $A_s$ = 0,02543 m (área da seção transversal onde o fluido do lado do casco e
 
 $ρ_s$=1000 kg/m^3 (densidade do fluido do lado do casco)
 
-$F_s$=0,1 m3/s (vazão volumétrica do fluido do lado do casco)
+$F_s$=0,1 mˆ3/s (vazão volumétrica do fluido do lado do casco)
 
 *Informações sobre o fluido do lado do Tubo (solução)*
 
@@ -173,17 +174,19 @@ $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
 De acordo com gráfico gerado, é possível observar que a troca térmica acontece muito rapidamente, em t<0.0001s. 
 
-O perfil de temperatura de saída do fluido de resfriamento do lado do casco converge de para um valor mais distante da temperatura inicial de entrada (T0s = 250K), porque possui menos massa por unidade de volume, entrando no estado estacionário em t=0.0001s com a temperatura de saída igual a 313K.
+Considerando o problema proposto, o perfil de temperatura de saída do fluido de resfriamento do lado do casco (Figura 4) converge de para um valor mais distante da temperatura inicial de entrada (T0s = 250K), porque possui menos massa por unidade de volume, entrando no estado estacionário em t=0.0001s com a temperatura de saída igual a 313K.
 
-Já o perfil de temperatura do fluido de interesse do lado do tubo teve a variação mais amena, entrando no estado estacionário em t=0.004s com a temperatura de saída igual a 280K. 
-
-Como foi assuminda a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão desse modelo.
+Já o perfil de temperatura do fluido de interesse do lado (Figura 4) do tubo teve a variação mais amena, entrando no estado estacionário em t=0.004s com a temperatura de saída igual a 280K. 
 
 ![Captura de Tela 2023-06-26 às 10 53 05](https://github.com/amandalemette/EQM2108/assets/135286174/fad3fba2-b177-4586-8f00-d4e15191c82d)
+Figura 4: Perfis de Temperatura no Casco e no Tubo Ft = 0.2m3/s, Fs = 0.1m3/s
 
-Fs = 0,5 Ts_out = Tt_out
-Ts_out diminui
+Fazendo uma análise mais cuidadosa em relação às vazões volumétricas do processo, ao fixarmos a vazão no tubo de acordo com a fornecida no problema, Ft = 0.2 m3/s, e aumentarmos a vazão do lado do casco para Fs = 0,5 m3/s, a temperatura de saída do lado do casco (Ts_out) diminui, fazendo com que as temperaturas saída no casco e no tubo entrem em estado estacionário quando Ts_out = Tt_out (Figura 5)
+
 ![Captura de Tela 2023-06-30 às 16 07 37](https://github.com/amandalemette/EQM2108/assets/135286174/e83c54c7-0d41-4532-85ca-e3a5f90dd250)
+
+Figura 4: Perfis de Temperatura no Casco e no Tubo
+
 
 Fs = 0,05 
 Ts_out aumenta muito e extrapola
@@ -196,6 +199,11 @@ Tt_out = 264 K
 Ocorre boa troca térmica 
 ![Captura de Tela 2023-06-30 às 16 16 27](https://github.com/amandalemette/EQM2108/assets/135286174/b7bd1730-ccdc-4152-9f5c-681c3a30eaa1)
 
+Se Ft = 0.5 Tt_out = Ts_out
+Ft = 1,0 Tt_out > Ts_out - não ocorre troca térmica efetiva
+![Captura de Tela 2023-06-30 às 17 28 08](https://github.com/amandalemette/EQM2108/assets/135286174/4c9b4b1f-85aa-477f-9662-9b60c54f9f3d)
+
+Como foi assuminda a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão desse modelo. 
 
 ### 7. Conclusões
 
