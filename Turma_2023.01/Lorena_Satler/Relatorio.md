@@ -28,9 +28,9 @@ O trocador de calor de tubo duplo é o tipo mais simples de trocador de calor e 
 
 ### 3. Metodologia 
 
-O modelo apresentado aplica equações diferenciais ordinárias (ODEs) para descrever o processo e fornecer os gráficos das temperaturas de saída versus tempo. 
+O modelo apresentado foi obtido através da liguagem de programação em python, aplicando equações diferenciais ordinárias (ODEs) para descrever o processo e fornecer os gráficos das temperaturas de saída versus tempo. 
 
-O trocador de calor foi dividido em três segmentos diferenciais (Δz), em vez de tomar a derivada parcial ao longo do comprimento em relação à temperatura. Para cada unidade de Δz, e cada fluido naquela unidade do trocador de calor, foi necessária uma equação de aproximação. 
+O trocador de calor foi dividido em três segmentos diferenciais (Δz), em vez de tomar a derivada parcial ao longo do comprimento em relação à temperatura (Figura 3). Para cada unidade de Δz, e cada fluido naquela unidade do trocador de calor, foi necessária uma equação de aproximação. 
 
 ### 3.1. Balanço Energético - Modelagem com EDO's
 
@@ -101,7 +101,7 @@ $∞$ - ar
 $o$- fora do tubo
 
 
-### 4. Hipóteses
+### 3.1.3 Hipóteses
 
 Como existem muitas variáveis independentes em um trocador de calor, é justificado considerar algumas hipóteses nesta modelagem, reduzindo o número de EDOs necessárias para definir as variáveis do processo. 
 
@@ -126,7 +126,7 @@ A Figura 3 abaixo mostra um exemplo de simplificação onde o trocador de calor 
 ![Captura de Tela 2023-06-25 às 17 59 06](https://github.com/amandalemette/EQM2108/assets/135286174/d6ee24d1-1a71-4917-9a77-ceb457dd35a7)
 Figura 3: Trocador de calor dividido em três segmentos diferenciais (Δz)
 
-### 5. Estudo de caso
+### 4. Estudo de caso
 
 Resfriar rápida e eficientemente um fluido a 330 K em um trocador de calor de tubo duplo em contracorrente com água fria entrando a 250 K como fluido refrigerante. 
 
@@ -170,7 +170,7 @@ $ρ_t$ =1030 kg/m^3 (densidade do fluido do lado do tubo)
 
 $F_t$ =0,2 m3/s (vazão volumétrica do fluido do lado do tubo)
 
-### 6. Resultados
+### 5. Resultados e Discussões
 
 De acordo com gráfico gerado, é possível observar que a troca térmica é efetiva e acontece muito rapidamente, em t<0.0001s. Contudo, faz sentido físico.
 
@@ -181,11 +181,11 @@ Figura 4: Perfis de Temperatura no Casco e no Tubo Ft = 0.2m3/s, Fs = 0.1m3/s
 
 Fazendo uma análise mais cuidadosa em relação à variação das vazões volumétricas do processo, ao fixarmos a vazão no tubo de acordo com a fornecida no problema, Ft = 0.2 m3/s, e aumentarmos a vazão do lado do casco para Fs = 0,5 m3/s, a temperatura de saída do lado do casco (Ts_out) diminui, até que as temperaturas saída no casco e no tubo entrem em estado estacionário quando Ts_out = Tt_out = 261K. Por outro lado, se diminuirmos a a vazão do lado do casco para Fs = 0,05 m3/s, Ts_out aumenta muito e extrapolando a temperatura de entrada do fluido quente. Se fixarmos a vazão do lado do casco fornecida no problema proposto (Fs = 0.1 m3/s) e diminuirmos a vazão do lado do tubo pra Ft = 0,1 m3/s, ocorre troca térmica satisfatória, onde Ts_out = 303 K e Tt_out = 264 K. Contudo, se aumentarmos Ft = 1,0 m3/s, não ocorre troca térmica efetiva, pois o fluido quente perde pouco calor e sai com Tt_out = 314K.
 
-A variação na constante de troca térmica também afeta diretamente as temperaturas de saída dos fluidos, a redução do valor da constante k diminui a eficiencia da troca de calor, já o aumento dessa constante não significa a melhora na eficiencia, pois existe um limite máximo aceitável do valor de k, para o caso do problema proposto k<550000 W/mˆ2k. 
+A variação na constante de troca térmica também afeta diretamente as temperaturas de saída dos fluidos, a redução do valor da constante k diminui a eficiencia da troca de calor, já o aumento dessa constante não significa a melhora na eficiencia, pois existe um limite máximo aceitável do valor de k, para o caso do problema proposto k<550000 W/mˆ2k. De forma geral, toda variável, seja ela dependente ou independente, influencia no processo de troca térmica, sobretudo considerando as hipóteses elencadas no item 3.1.3. e a realidade. 
 
 Ademais, como foi assuminda a mesma temperatura para os fluxos de saída e para o interior do segmento, a escolha do comprimento desses Δz ajuda a ditar a precisão desse modelo. 
 
-### 7. Conclusões
+### 6. Conclusões
 
 Como os trocadores de calor têm uma grande variedade de aplicações, especialmente em processos químicos, ar condicionado e refrigeração, o controle do sistema é essencial para a otimização e a realização de previsões dos processos. 
 
@@ -196,7 +196,7 @@ Existem considerações e simplificações apropriadas para diminuir o número d
 O modelo proposto cumpriu o objetivo do trabalho e tem sentido físico, uma vez que é capaz de resfriar o fluido de interese (T0t = 330 K e Tt_out = 280K), entretanto, se aplica para o comprimento do trocador de Δz = 1 e o número de divisões N = 3. Além disso, foi observado que a variação das vazões volumétricas de processo e da constante de troca térmica afetam diretamente a eficiencia da troca de calor e devem ser escolhidas de acordo com as temperaturas de saída de desejadas. 
 
 
-### 8. Referências
+### 7. Referências
 
 1. Libre Texts Engineering - Acessado em 01 de junho de 2023: https://eng.libretexts.org/Bookshelves/Industrial_and_Systems_Engineering/Chemical_Process_Dynamics_and_Controls_(Woolf)/06%3A_Modeling_Case_Studies/6.06%3A_ODE_and_Excel_model_of_a_Heat_Exchanger
 
